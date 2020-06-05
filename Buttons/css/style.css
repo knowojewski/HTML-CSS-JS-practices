@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background-color: #b4b4b4;
+  color: #2e2e2e;
+  font-family: sans-serif;
+}
+
+body h1 {
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+
+.btn {
+  margin: 0 10px;
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.btn1 {
+  background: none;
+  border: 1px solid #222129;
+}
+
+.btn1::before {
+  position: absolute;
+  width: 170px;
+  height: 100px;
+  content: '';
+  background-color: #222129;
+  top: 0px;
+  border-radius: 0;
+  left: -153px;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  z-index: -1;
+  -webkit-transition: left .3s, border-radius .3s;
+  transition: left .3s, border-radius .3s;
+}
+
+.btn1:hover {
+  color: #ffffff;
+}
+
+.btn1:hover::before {
+  left: -13px;
+  border-radius: 40% 60% 0 0;
+}
+/*# sourceMappingURL=style.css.map */
