@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box">
+        <div class="input-box">
+            <h1>Weather App</h1>
+            <div class="input-items">
+                <label for="input-text">Search city name:</label>
+                <div class="input-text-btn">
+                    <input type="text" id="input-text" class="input-text">
+                    <button>Search</button>
+                </div>
+                <p class="wrong-input"></p>
+            </div>
+        </div>
+        <div class="display-box">
+            <div class="icon-box">
+                <img src="" alt="Obrazek przedstawiający pogodę" class="image">
+            </div>
+            <div class="info-box">
+                <h2 class="city-name"></h2>
+                <div class="headings">
+                    <p>Weather</p>
+                    <p>Temperature</p>
+                    <p>Humidity</p>
+                </div>
+                <div class="weather-info">
+                    <p class="weather"></p>
+                    <p class="temp"></p>
+                    <p class="humidity"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

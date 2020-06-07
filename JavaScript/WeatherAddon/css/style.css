@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+}
+
+.box {
+  height: 360px;
+  width: 650px;
+  -webkit-box-shadow: 0 0 30px 1px #4C454C;
+          box-shadow: 0 0 30px 1px #4C454C;
+}
+
+.box .input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 160px;
+  background-color: #4C454C;
+  color: #f4f4f4;
+}
+
+.box .input-box h1 {
+  padding: 20px 0;
+}
+
+.box .input-box .input-items {
+  width: 100%;
+}
+
+.box .input-box .input-items label {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.box .input-box .input-items p {
+  width: 80%;
+  font-size: 13px;
+  color: #ff3d3d;
+  margin: 0 auto;
+}
+
+.box .input-box .input-items .input-text-btn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.box .input-box .input-items .input-text-btn .input-text {
+  width: 82%;
+  height: 30px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  padding: 0 10px;
+  background-color: transparent;
+  color: #f4f4f4;
+  border: none;
+  border-bottom: 2px solid #915E43;
+}
+
+.box .input-box .input-items .input-text-btn button {
+  width: 15%;
+  height: 30px;
+  border: none;
+  background-color: #DAAB57;
+}
+
+.box .display-box {
+  width: 100%;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #373237;
+}
+
+.box .display-box .icon-box {
+  width: 30%;
+  height: 100%;
+  background-color: #B29E9A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.box .display-box .icon-box img {
+  width: 100px;
+  height: 100px;
+}
+
+.box .display-box .info-box {
+  width: 70%;
+  height: 100%;
+  background-color: #F6F7F3;
+}
+
+.box .display-box .info-box .city-name {
+  padding: 20px 0 20px 55px;
+}
+
+.box .display-box .info-box .headings {
+  width: 100%;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid #915E43;
+}
+
+.box .display-box .info-box .headings p {
+  font-weight: bold;
+  text-align: center;
+  width: 33%;
+  margin-bottom: 5px;
+}
+
+.box .display-box .info-box .weather-info {
+  width: 100%;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box .display-box .info-box .weather-info p {
+  text-align: center;
+  width: 33%;
+}
+/*# sourceMappingURL=style.css.map */
