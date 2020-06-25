@@ -1,0 +1,179 @@
+* 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body 
+    font-family: 'Poppins', sans-serif
+    color: #ffffff
+    position: relative
+
+.smaller-nav 
+    height: 60px
+
+nav 
+    position: fixed
+    width: 100%
+    height: 100px
+    display: flex 
+    align-items: center
+    justify-content: space-between
+    transition: height .3s 
+    z-index: 6
+
+    .logo
+        margin-left: 40px
+        font-size: 30px
+        margin-left: 
+        transform: translateX(100px)
+        transition: transform .3s
+
+        span 
+            color: #d37ee9
+            font-size: 40px
+
+    button
+        margin-right: 40px
+        width: 50px
+        height: 50px
+        border: none
+        border-radius: 50px
+        background-color: transparent
+        cursor: pointer
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        transform: translateX(-100px)
+        transition: background-color .3s, transform .3s
+
+        span
+            height: 3px
+            width: 30px
+            margin: 3px 0
+            background-color: #ffffff
+            transform: none
+            transform-origin: right
+            transition: transform 1s
+
+        span:nth-child(2)
+            transform-origin: center
+
+    button:focus 
+        outline: none
+        background-color: #ffffff1f
+
+    button:hover
+        background-color: #ffffff1f
+
+    .open
+        span:nth-child(1)
+            transform-origin: right
+            transform: rotateZ(315deg) translate(-1px, -4px)
+
+        span:nth-child(2)
+            transform: scale(0)
+
+        span:nth-child(3)
+            transform-origin: right
+            transform: rotateZ(-315deg) translate(-2px, 4px)
+
+.navigation
+    position: fixed
+    width: 100%
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center
+    background: linear-gradient(#8b11b1ea, #c300ffea)
+    transform: translateX(100%)
+    transition: transform 1s
+    z-index: 5
+
+    ul 
+        width: 60%
+        list-style: none
+        opacity: 0
+        transition: opacity .3s ease 1s
+
+        li 
+            position: relative
+            width: 40%
+            padding: 10px
+            // border-bottom: 2px solid #cacaca
+            
+            a
+                display: block
+                width: 100%
+                height: 100%
+                text-decoration: none
+                color: #b9b9b986
+                font-size: 50px
+                transition: color .3s
+
+        li::after 
+            content: ''
+            position: absolute
+            height: 2px
+            width: 20%
+            background: linear-gradient(to right,#ffffff, #c300ff)
+            transition: width .5s, background .5s
+
+        li:hover::after 
+            width: 100%
+            background: linear-gradient(to right,#ffffff, #c300ff, #c300ff00)
+
+        li:hover a 
+            color: #ffffff
+
+    .pop
+        opacity: 1
+
+.show 
+    transform: translateX(0)
+
+.change-pos
+    transform: translateX(0) !important
+
+.hero-section
+    height: 100vh
+    background: linear-gradient(to bottom right, #222222, #581677f3)
+    position: relative
+
+    h1 
+        position: absolute
+        top: 40%
+        left: 20%
+        font-size: 40px
+        font-weight: 400
+        z-index: 2
+
+    p 
+        position: absolute
+        top: 48%
+        left: 20%
+        font-size: 22px
+        z-index: 2
+    
+.image 
+    position: absolute
+    width: 450px
+    height: 80%
+    background-image: linear-gradient(#be32ff67, #ae00ff1a), url('../ingmar-Z4r8t1V2xRg-unsplash.jpg')
+    background-position: center
+    background-size: cover
+    right: 10%
+    top: 50%
+    transform: translateY(-50%)
+    opacity: 1
+    z-index: 1
+
+.decoration
+    position: absolute 
+    width: 85%
+    height: 33%
+    top: 50%
+    left: 200px
+    transform: translateY(-50%)
+    background: #d373ff62
+    z-index: 0

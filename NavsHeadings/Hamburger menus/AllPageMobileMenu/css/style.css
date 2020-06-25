@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  position: relative;
+}
+
+.smaller-nav {
+  height: 60px;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: height .3s;
+  transition: height .3s;
+  z-index: 6;
+}
+
+nav .logo {
+  margin-left: 40px;
+  font-size: 30px;
+  -webkit-transform: translateX(100px);
+          transform: translateX(100px);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+nav .logo span {
+  color: #d37ee9;
+  font-size: 40px;
+}
+
+nav button {
+  margin-right: 40px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  background-color: transparent;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+  -webkit-transition: background-color .3s, -webkit-transform .3s;
+  transition: background-color .3s, -webkit-transform .3s;
+  transition: background-color .3s, transform .3s;
+  transition: background-color .3s, transform .3s, -webkit-transform .3s;
+}
+
+nav button span {
+  height: 3px;
+  width: 30px;
+  margin: 3px 0;
+  background-color: #ffffff;
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+nav button span:nth-child(2) {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+nav button:focus {
+  outline: none;
+  background-color: #ffffff1f;
+}
+
+nav button:hover {
+  background-color: #ffffff1f;
+}
+
+nav .open span:nth-child(1) {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: rotateZ(315deg) translate(-1px, -4px);
+          transform: rotateZ(315deg) translate(-1px, -4px);
+}
+
+nav .open span:nth-child(2) {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
+nav .open span:nth-child(3) {
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transform: rotateZ(-315deg) translate(-2px, 4px);
+          transform: rotateZ(-315deg) translate(-2px, 4px);
+}
+
+.navigation {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8b11b1ea), to(#c300ffea));
+  background: linear-gradient(#8b11b1ea, #c300ffea);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  z-index: 5;
+}
+
+.navigation ul {
+  width: 60%;
+  list-style: none;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease 1s;
+  transition: opacity .3s ease 1s;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 40%;
+  padding: 10px;
+}
+
+.navigation ul li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #b9b9b986;
+  font-size: 50px;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.navigation ul li::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 20%;
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#c300ff));
+  background: linear-gradient(to right, #ffffff, #c300ff);
+  -webkit-transition: width .5s, background .5s;
+  transition: width .5s, background .5s;
+}
+
+.navigation ul li:hover::after {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, right top, from(#ffffff), color-stop(#c300ff), to(#c300ff00));
+  background: linear-gradient(to right, #ffffff, #c300ff, #c300ff00);
+}
+
+.navigation ul li:hover a {
+  color: #ffffff;
+}
+
+.navigation .pop {
+  opacity: 1;
+}
+
+.show {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.change-pos {
+  -webkit-transform: translateX(0) !important;
+          transform: translateX(0) !important;
+}
+
+.hero-section {
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, right bottom, from(#222222), to(#581677f3));
+  background: linear-gradient(to bottom right, #222222, #581677f3);
+  position: relative;
+}
+
+.hero-section h1 {
+  position: absolute;
+  top: 40%;
+  left: 20%;
+  font-size: 40px;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.hero-section p {
+  position: absolute;
+  top: 48%;
+  left: 20%;
+  font-size: 22px;
+  z-index: 2;
+}
+
+.image {
+  position: absolute;
+  width: 450px;
+  height: 80%;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#be32ff67), to(#ae00ff1a)), url("../ingmar-Z4r8t1V2xRg-unsplash.jpg");
+  background-image: linear-gradient(#be32ff67, #ae00ff1a), url("../ingmar-Z4r8t1V2xRg-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  right: 10%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  opacity: 1;
+  z-index: 1;
+}
+
+.decoration {
+  position: absolute;
+  width: 85%;
+  height: 33%;
+  top: 50%;
+  left: 200px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #d373ff62;
+  z-index: 0;
+}
+/*# sourceMappingURL=style.css.map */
