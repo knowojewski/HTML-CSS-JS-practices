@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Coctail Finder</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cocktail Finder</h1>
+        <div class="coctail-box">
+            <div class="image"></div>
+            <div class="coctail-infos">
+                <div class="name-box">
+                    <h2 class="coctail-name">Cocktail Name</h2>
+                    <span class="coctail-category">Category</span>
+                </div>
+                <h3 class="ingredients">Ingredients</h3>
+                <ul class="ingredients-list"></ul>
+                <div class="glass-box">
+                    <h3>Preferred Glass: </h3>
+                    <span class="glass"></span>
+                </div>
+                <p class="coctail-desc"></p>
+            </div>
+        </div>
+        <div class="filters-box">
+            <div class="filter">
+                <label for="cocktailSearch">Search cocktail:</label>
+                <input type="text" id="cocktailSearch">
+            </div>
+            <div class="filter">
+                <label for="ingredientSearch">Search by ingredient:</label>
+                <input type="text" id="ingredientSearch">
+            </div>
+            <button class="random-btn"><i class="fas fa-dice"></i> Random</button>
+        </div>
+        <p class="warning-message"></p>
+        <div class="cocktails-list">
+        </div>
+    </div>
+    
+    <script src="./coctail.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
