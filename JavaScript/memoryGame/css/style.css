@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#000000b7), to(#000000)), url("../images/bg.jpg");
+  background-image: linear-gradient(to bottom, #000000b7, #000000), url("../images/bg.jpg");
+  background-position: center;
+  background-size: cover;
+  font-family: 'Noto Serif JP', serif;
+  color: #f2f2f2;
+}
+
+.heading {
+  text-align: center;
+  width: 800px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0d1129), to(#01051f));
+  background: linear-gradient(to bottom, #0d1129, #01051f);
+  padding: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 45px 5px #000000;
+          box-shadow: 0 0 45px 5px #000000;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 60px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 22px;
+  margin: 20px 0;
+}
+
+.board-bg {
+  width: 800px;
+  height: 680px;
+  background-image: url(../images/boardBg.png);
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game-board {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 445px;
+  height: 480px;
+}
+
+.card-container {
+  margin: 5px;
+  width: 100px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.card-container .card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+
+.card-container .card figure {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.card-container .card .front {
+  background-color: #3c3f2f;
+}
+
+.card-container .card .front i {
+  color: #838383;
+  font-size: 70px;
+}
+
+.card-container .card .back {
+  background-color: #ff6f2d;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.card-container .card .back img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.rotate .card {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+/*# sourceMappingURL=style.css.map */
