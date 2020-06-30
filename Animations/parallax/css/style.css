@@ -92,6 +92,8 @@ header .moon {
   top: 18%;
   left: 10%;
   width: 140px;
+  -webkit-transform: none;
+          transform: none;
   z-index: 1;
 }
 
@@ -99,6 +101,8 @@ header .forest {
   position: absolute;
   bottom: 0;
   left: 0;
+  -webkit-transform: none;
+          transform: none;
   z-index: 1;
 }
 
