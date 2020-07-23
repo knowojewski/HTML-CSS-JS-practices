@@ -33,8 +33,6 @@ function loadBoard() {
         front.className = 'front';
         back.className = 'back';
 
-        front.innerHTML = '<i class="fas fa-hand-pointer"></i>';
-
         card.appendChild(front);
         card.appendChild(back);
         cardContainer.appendChild(card);
