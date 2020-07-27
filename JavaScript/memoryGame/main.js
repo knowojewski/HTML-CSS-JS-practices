@@ -86,6 +86,7 @@ const checkIfMatches = cards => {
     const firstFigure = cards[0].children[0].children[1];
     const secondFigure = cards[1].children[0].children[1];
     const allCards = document.querySelectorAll('.card-container');
+    const guessedCards = document.querySelectorAll('.rotate');
 
     if (firstFigure.innerHTML === secondFigure.innerHTML) {
         result++;
@@ -102,7 +103,11 @@ const checkIfMatches = cards => {
 
         setTimeout(() => {
             cards.forEach(item => item.classList.remove('rotate') );
-            allCards.forEach(item => item.addEventListener('click', rotateBlock));
+            allCards.forEach(item => {
+                if(!item.classList.contains('rotate')) {
+                    item.addEventListener('click', rotateBlock);
+                };
+            });
         }, 1000);
         
         cardArr = [];
