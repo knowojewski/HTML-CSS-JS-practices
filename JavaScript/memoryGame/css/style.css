@@ -134,7 +134,9 @@ h3 {
   background-image: linear-gradient(#000000d2, #000000cc), url(../images/modal-bg.jpg);
   background-size: cover;
   background-position: center;
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -145,13 +147,16 @@ h3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility .8s, opacity .8s;
+  transition: visibility .8s, opacity .8s;
   z-index: 5;
 }
 
 .open {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 .board-bg {

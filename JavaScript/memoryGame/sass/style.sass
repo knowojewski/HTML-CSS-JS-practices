@@ -94,14 +94,18 @@ h3
     background-image: linear-gradient(#000000d2, #000000cc), url(../images/modal-bg.jpg)
     background-size: cover 
     background-position: center
-    display: none 
+    display: flex 
     flex-direction: column
     align-items: center
     justify-content: center
+    visibility: hidden
+    opacity: 0
+    transition: visibility .8s, opacity .8s
     z-index: 5
 
 .open 
-    display: flex
+    visibility: visible 
+    opacity: 1
 
 .board-bg 
     background-image:url(../images/boardBg.png)
