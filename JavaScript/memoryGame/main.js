@@ -6,9 +6,12 @@ const modal = document.querySelector('.modal-board');
 const score = document.querySelector('.score');
 const cancel = document.querySelector('.cancel');
 const difficulty = document.querySelector('.difficulty');
+const attempts = document.querySelector('.attempts');
+const victory = document.querySelector('.victory-box');
 
 let cardArr = [];
 let result = 0;
+let attemptsCount = 0;
 
 
 const loadEventListeners = () => {
@@ -23,11 +26,14 @@ const loadEventListeners = () => {
 
 function loadBoard() {
     modal.classList.add('open');
+    victory.classList.remove('show-victory');
     difficulty.innerText = level.value.toUpperCase();
     board.innerHTML = '';
     cardArr = [];
     result = 0;
+    attemptsCount = 0;
     score.innerHTML = result;
+    attempts.innerHTML = attemptsCount;
     
     if(level.value === 'easy') {
         console.log('Difficulty easy');
@@ -132,6 +138,7 @@ function rotateBlock(event) {
     cardArr[0].removeEventListener('click', rotateBlock);
     if(cardArr.length === 2) {
         checkIfMatches(cardArr);
+        checkIfWin();
     }
 };
 
@@ -171,13 +178,39 @@ const checkIfMatches = cards => {
         
         cardArr = [];
     }
+
+    attemptsCount++;
+    attempts.innerHTML = attemptsCount;
 };
+
+
+// --------- Check if Win ---------
+
+
+function checkIfWin() {
+    if(level.value === 'easy') {
+        if(score.innerHTML == '6') {
+            victory.classList.add('show-victory');
+        }
+    } else if(level.value === 'normal') {
+        if(score.innerHTML == '9') {
+            victory.classList.add('show-victory');
+        }
+
+    } else if(level.value === 'hard') {
+        if(score.innerHTML == '12') {
+            victory.classList.add('show-victory');
+        }
+
+    }
+}
 
 
 // --------- Close Modal ---------
 
 
 function closeModal() {
+    victory.classList.remove('show-victory');
     modal.classList.remove('open');
 }
 
