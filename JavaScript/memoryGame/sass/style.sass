@@ -64,6 +64,7 @@ body
 
     select
         width: 100px
+        cursor: pointer
 
 h1 
     font-family: sans-serif
@@ -79,52 +80,75 @@ h3
 
 .modal-board 
     position: absolute
-    height: 100%
     width: 100%
+    min-height: 100%
     top: 0 
     left: 0
     background-image: linear-gradient(#000000d2, #000000cc), url(../images/modal-bg.jpg)
+    background-size: cover 
+    background-position: center
     display: none 
     flex-direction: column
     align-items: center
     justify-content: center
+    z-index: 5
 
 .open 
     display: flex
 
 .board-bg 
-    width: 900px
-    height: 680px
     background-image:url(../images/boardBg.png)
     background-size: cover
     background-position: center
     display: flex 
     justify-content: center
     align-items: center
+    margin: 30px 0
 
+.easy-bg
+    width: 900px
+    height: 680px
+
+.normal-bg
+    width: 1200px
+    height: 900px
+
+.hard-bg
+    width: 1200px
+    height: 900px
 
 .game-board 
     display: flex 
     justify-content: center
     align-items: center
     flex-wrap: wrap
+
+.easy
     width: 445px
     height: 480px
 
+.normal 
+    width: 745px
+    height: 480px
 
+.hard 
+    width: 745px
+    height: 680px
 
 .card-container 
     margin: 5px
     width: 100px
     height: 150px
     cursor: pointer
+    transition: transform .3s
 
     .card
         position: relative 
         width: 100%
         height: 100%
         transform-style: preserve-3d
-        transition: transform 1s
+        transition: transform 1s, box-shadow .3s
+        box-shadow: 0 0 10px #333333
 
         figure
             position: absolute
@@ -154,9 +178,26 @@ h3
                 width: 100%
                 object-fit: contain
 
+.not-guessed:hover
+    transform: scale(1.04)
+
+    .card
+        box-shadow: 0 0 25px #333333
+
 .rotate
     .card 
         transform: rotateY(180deg)
+
+.guessed
+    transform-origin: center
+    animation: guessed-anim 1s ease-in
+
+.buttons-box 
+    display: flex
+    width: 420px
+    justify-content: space-between
+    position: absolute
+    bottom: 30px
 
 .btn 
     width: 200px 
@@ -167,8 +208,17 @@ h3
     font-family: 'Noto Serif JP', serif
     font-size: 18px
     border-radius: 30px
+    cursor: pointer
+    transition: transform .3s, box-shadow .3s
+
+.btn:hover
+    box-shadow: 0 0 25px #464646
+    transform: scale(1.1)
 
 .score-box
+    position: absolute
+    top: 20px
+
     .score-count 
         font-size: 40px
         font-weight: 400
@@ -196,3 +246,14 @@ h3
     .difficulty-lvl 
         font-size: 20px 
         margin-top: 20px
+
+
+@keyframes guessed-anim 
+    0%
+        transform: scale(1)
+
+    50%
+        transform: scale(1.2)
+
+    100%
+        transform: scale(1)

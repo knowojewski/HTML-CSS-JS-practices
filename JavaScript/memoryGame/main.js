@@ -1,3 +1,4 @@
+const boardBg = document.querySelector('.board-bg');
 const board = document.querySelector('.game-board');
 const level = document.querySelector('.level-box select');
 const play = document.querySelectorAll('.play');
@@ -28,30 +29,82 @@ function loadBoard() {
     result = 0;
     score.innerHTML = result;
     
-    for(let i = 0; i < 12; i++) {
-        const cardContainer = document.createElement('div');
-        const card = document.createElement('div');
-        const front = document.createElement('figure');
-        const back = document.createElement('figure');
-        
-        cardContainer.className = 'card-container';
-        card.className = 'card';
-        front.className = 'front';
-        back.className = 'back';
+    if(level.value === 'easy') {
+        console.log('Difficulty easy');
+        boardBg.classList.remove('normal-bg');
+        boardBg.classList.remove('hard-bg');
+        boardBg.classList.add('easy-bg');
+        board.classList.remove('normal');
+        board.classList.remove('hard');
+        board.classList.add('easy');
+        for(let i = 0; i < 12; i++) {
+            createCard();
+        }
+        shuffleCards(12);
 
-        card.appendChild(front);
-        card.appendChild(back);
-        cardContainer.appendChild(card);
+    } else if(level.value === 'normal') {
+        console.log('Difficulty normal');
+        boardBg.classList.remove('easy-bg');
+        boardBg.classList.remove('hard-bg');
+        boardBg.classList.add('normal-bg');
+        board.classList.remove('easy');
+        board.classList.remove('hard');
+        board.classList.add('normal');
+        for(let i = 0; i < 18; i++) {
+            createCard();
+        }
+        shuffleCards(18);
 
-        cardContainer.addEventListener('click', rotateBlock);
-
-        board.appendChild(cardContainer);
+    } else if(level.value === 'hard') {
+        console.log('Difficulty hard');
+        boardBg.classList.remove('easy-bg');
+        boardBg.classList.remove('normal-bg');
+        boardBg.classList.add('hard-bg');
+        board.classList.remove('easy');
+        board.classList.remove('normal');
+        board.classList.add('hard');
+        for(let i = 0; i < 24; i++) {
+            createCard();
+        }
+        shuffleCards(24);
     }
+};
 
+
+// -------- Creating Cards ------------
+
+
+function createCard() {
+    const cardContainer = document.createElement('div');
+    const card = document.createElement('div');
+    const front = document.createElement('figure');
+    const back = document.createElement('figure');
+    
+    cardContainer.className = 'card-container not-guessed';
+    card.className = 'card';
+    front.className = 'front';
+    back.className = 'back';
+
+    card.appendChild(front);
+    card.appendChild(back);
+    cardContainer.appendChild(card);
+
+    cardContainer.addEventListener('click', rotateBlock);
+
+    board.appendChild(cardContainer);
+}
+
+
+// --------- Shuffle Cards ------------
+
+
+function shuffleCards(number) {
+    console.log(number);
     const allBacks = document.querySelectorAll('.back');
     let num = 0;
+    console.log(allBacks);
 
-    for(let j = 0; j < 12; j += 2) {
+    for(let j = 0; j < number; j += 2) {
         allBacks[j].setAttribute('id', num);
         allBacks[j + 1].setAttribute('id', num);
         
@@ -66,9 +119,7 @@ function loadBoard() {
     allCards.forEach(item => {
         item.style.order = Math.floor(Math.random()*100);
     });
-
-};
-
+}
 
 
 // --------- Rotating Block ------------
@@ -101,6 +152,8 @@ const checkIfMatches = cards => {
         cardArr.forEach( item => {
             item.removeEventListener('click', rotateBlock);
             item.style.cursor = 'auto';
+            item.classList.remove('not-guessed');
+            item.classList.add('guessed');
         });
 
         cardArr = [];
@@ -121,7 +174,7 @@ const checkIfMatches = cards => {
 };
 
 
-// --------- Check if Cards Matches ---------
+// --------- Close Modal ---------
 
 
 function closeModal() {

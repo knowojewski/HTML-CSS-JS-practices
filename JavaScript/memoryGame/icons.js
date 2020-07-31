@@ -27,5 +27,35 @@ const icons = [
     {
         icon: '<img src="./images/Marauder.PNG" alt="image">',
         number: 5
+    },
+
+    {
+        icon: '<img src="./images/Archaon.PNG" alt="image">',
+        number: 6
+    },
+
+    {
+        icon: '<img src="./images/Chosen.PNG" alt="image">',
+        number: 7
+    },
+
+    {
+        icon: '<img src="./images/Spawn.PNG" alt="image">',
+        number: 8
+    },
+
+    {
+        icon: '<img src="./images/Untamed_Beast.PNG" alt="image">',
+        number: 9
+    },
+
+    {
+        icon: '<img src="./images/Varanguard.PNG" alt="image">',
+        number: 10
+    },
+
+    {
+        icon: '<img src="./images/Warshrine.PNG" alt="image">',
+        number: 11
     }
 ]
