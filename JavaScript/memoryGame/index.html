@@ -11,14 +11,31 @@
 <body>
     <div class="heading">
         <img src="./images/logo.PNG" alt="Age of Sigmar logo.">
+        <p>MEMORY GAME</p>
     </div>
-    <button class="play">PLAY</button>
 
-    <div class="score-box">
-        <p>Score: <span class="score"></span></p>
-    </div>    
-    <div class="board-bg">
-        <div class="game-board"></div>
+    <div class="level-box">
+        <p>Choose difficulty</p>
+        <select name="level" id="level">
+            <option value="easy">Easy</option>
+            <option value="normal">Normal</option>
+            <option value="hard">Hard</option>
+        </select>
+    </div>
+    <button class="btn play">PLAY</button>
+
+    <div class="modal-board">
+        <div class="score-box">
+            <p class="score-count">Score: <span class="score"></span></p> 
+            <p class="difficulty-lvl">Difficulty: <span class="difficulty"></span></p>
+        </div>    
+        <div class="board-bg">
+            <div class="game-board"></div>
+        </div>
+        <div class="buttons-box">
+            <button class="btn cancel">BACK TO MENU</button>
+            <button class="btn play try-again">TRY AGAIN</button>
+        </div>
     </div>
 
     <script src="./icons.js"></script>

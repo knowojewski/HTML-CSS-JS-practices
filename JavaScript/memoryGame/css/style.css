@@ -26,11 +26,26 @@ body {
   background-size: cover;
   font-family: 'Noto Serif JP', serif;
   color: #f2f2f2;
+  position: relative;
 }
 
 .heading {
   width: 800px;
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 50px;
 }
 
 .heading img {
@@ -38,6 +53,49 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.heading p {
+  font-size: 40px;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.heading p::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 140px;
+  background: #fff;
+  left: -150px;
+  top: 50%;
+}
+
+.heading p::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 140px;
+  background-color: #fff;
+  right: -150px;
+  top: 50%;
+}
+
+.level-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.level-box p {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.level-box select {
+  width: 100px;
 }
 
 h1 {
@@ -53,6 +111,33 @@ h2 {
 h3 {
   font-size: 22px;
   margin: 20px 0;
+}
+
+.modal-board {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#000000d2), to(#000000cc)), url(../images/modal-bg.jpg);
+  background-image: linear-gradient(#000000d2, #000000cc), url(../images/modal-bg.jpg);
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .board-bg {
@@ -154,7 +239,7 @@ h3 {
           transform: rotateY(180deg);
 }
 
-.play {
+.btn {
   width: 200px;
   height: 50px;
   border: 5px solid #a19b744f;
@@ -165,8 +250,35 @@ h3 {
   border-radius: 30px;
 }
 
-.score-box {
-  margin-top: 10px;
+.score-box .score-count {
+  font-size: 40px;
+  font-weight: 400;
+  position: relative;
+  letter-spacing: 2px;
+}
+
+.score-box .score-count::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 140px;
+  background: #fff;
+  left: -150px;
+  top: 50%;
+}
+
+.score-box .score-count::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 140px;
+  background-color: #fff;
+  right: -150px;
+  top: 50%;
+}
+
+.score-box .difficulty-lvl {
   font-size: 20px;
+  margin-top: 20px;
 }
 /*# sourceMappingURL=style.css.map */

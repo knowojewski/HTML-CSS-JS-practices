@@ -14,15 +14,56 @@ body
     background-size: cover
     font-family: 'Noto Serif JP', serif
     color: #f2f2f2
+    position: relative
 
 .heading
     width: 800px
     height: 200px
+    display: flex 
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    margin-bottom: 50px
 
     img 
         width: 100%
         height: 100%
         object-fit: cover
+
+    p 
+        font-size: 40px
+        font-weight: 400
+        position: relative
+        letter-spacing: 2px
+
+    p::before 
+        content: ''
+        position: absolute
+        height: 2px 
+        width: 140px
+        background: #fff 
+        left: -150px
+        top: 50%
+
+    p::after 
+        content: ''
+        position: absolute
+        height: 2px 
+        width: 140px 
+        background-color: #fff
+        right: -150px
+        top: 50%
+
+.level-box
+    display: flex
+    margin-bottom: 20px
+
+    p   
+        margin-right: 10px
+        font-size: 20px
+
+    select
+        width: 100px
 
 h1 
     font-family: sans-serif
@@ -35,6 +76,21 @@ h2
 h3 
     font-size: 22px
     margin: 20px 0
+
+.modal-board 
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0 
+    left: 0
+    background-image: linear-gradient(#000000d2, #000000cc), url(../images/modal-bg.jpg)
+    display: none 
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+.open 
+    display: flex
 
 .board-bg 
     width: 900px
@@ -102,7 +158,7 @@ h3
     .card 
         transform: rotateY(180deg)
 
-.play 
+.btn 
     width: 200px 
     height: 50px
     border: 5px solid #a19b744f
@@ -113,5 +169,30 @@ h3
     border-radius: 30px
 
 .score-box
-    margin-top: 10px
-    font-size: 20px
+    .score-count 
+        font-size: 40px
+        font-weight: 400
+        position: relative
+        letter-spacing: 2px
+
+    .score-count::before 
+        content: ''
+        position: absolute
+        height: 2px 
+        width: 140px
+        background: #fff 
+        left: -150px
+        top: 50%
+
+    .score-count::after 
+        content: ''
+        position: absolute
+        height: 2px 
+        width: 140px 
+        background-color: #fff
+        right: -150px
+        top: 50%
+
+    .difficulty-lvl 
+        font-size: 20px 
+        margin-top: 20px

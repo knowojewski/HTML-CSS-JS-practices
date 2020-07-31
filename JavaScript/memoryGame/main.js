@@ -1,13 +1,18 @@
 const board = document.querySelector('.game-board');
-const play = document.querySelector('.play');
+const level = document.querySelector('.level-box select');
+const play = document.querySelectorAll('.play');
+const modal = document.querySelector('.modal-board');
 const score = document.querySelector('.score');
+const cancel = document.querySelector('.cancel');
+const difficulty = document.querySelector('.difficulty');
 
 let cardArr = [];
 let result = 0;
 
 
 const loadEventListeners = () => {
-    play.addEventListener('click', loadBoard)
+    play.forEach( item => { item.addEventListener('click', loadBoard) });
+    cancel.addEventListener('click', closeModal);
 };
 
 
@@ -16,7 +21,8 @@ const loadEventListeners = () => {
 
 
 function loadBoard() {
-    play.innerText = 'TRY AGAIN';
+    modal.classList.add('open');
+    difficulty.innerText = level.value.toUpperCase();
     board.innerHTML = '';
     cardArr = [];
     result = 0;
@@ -114,6 +120,13 @@ const checkIfMatches = cards => {
     }
 };
 
+
+// --------- Check if Cards Matches ---------
+
+
+function closeModal() {
+    modal.classList.remove('open');
+}
 
 
 
