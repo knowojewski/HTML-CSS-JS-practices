@@ -1,11 +1,12 @@
 const boardBg = document.querySelector('.board-bg');
 const board = document.querySelector('.game-board');
-const level = document.querySelector('.level-box select');
+const level = document.querySelector('#level');
 const play = document.querySelectorAll('.play');
 const modal = document.querySelector('.modal-board');
 const score = document.querySelector('.score');
 const cancel = document.querySelector('.cancel');
 const difficulty = document.querySelector('.difficulty');
+const faction = document.querySelector('#faction');
 const attempts = document.querySelector('.attempts');
 const victory = document.querySelector('.victory-box');
 
@@ -36,7 +37,6 @@ function loadBoard() {
     attempts.innerHTML = attemptsCount;
     
     if(level.value === 'easy') {
-        console.log('Difficulty easy');
         boardBg.classList.remove('normal-bg');
         boardBg.classList.remove('hard-bg');
         boardBg.classList.add('easy-bg');
@@ -46,10 +46,9 @@ function loadBoard() {
         for(let i = 0; i < 12; i++) {
             createCard();
         }
-        shuffleCards(12);
+        shuffleCards(12, faction.value);
 
     } else if(level.value === 'normal') {
-        console.log('Difficulty normal');
         boardBg.classList.remove('easy-bg');
         boardBg.classList.remove('hard-bg');
         boardBg.classList.add('normal-bg');
@@ -59,10 +58,9 @@ function loadBoard() {
         for(let i = 0; i < 18; i++) {
             createCard();
         }
-        shuffleCards(18);
+        shuffleCards(18, faction.value);
 
     } else if(level.value === 'hard') {
-        console.log('Difficulty hard');
         boardBg.classList.remove('easy-bg');
         boardBg.classList.remove('normal-bg');
         boardBg.classList.add('hard-bg');
@@ -72,7 +70,7 @@ function loadBoard() {
         for(let i = 0; i < 24; i++) {
             createCard();
         }
-        shuffleCards(24);
+        shuffleCards(24, faction.value);
     }
 };
 
@@ -104,17 +102,26 @@ function createCard() {
 // --------- Shuffle Cards ------------
 
 
-function shuffleCards(number) {
-    console.log(number);
+function shuffleCards(number, faction) {
+    console.log(faction);
     const allBacks = document.querySelectorAll('.back');
+    const allFronts = document.querySelectorAll('.front');
     let num = 0;
-    console.log(allBacks);
+    let icon;
 
     for(let j = 0; j < number; j += 2) {
         allBacks[j].setAttribute('id', num);
         allBacks[j + 1].setAttribute('id', num);
         
-        const icon = icons[num].icon
+        if(faction == 'slaves') {
+            icon = slaves[num].icon;
+            allFronts.forEach( front => { front.setAttribute('style', 'background-image: url(./images/slaves-bg.jpeg)') });
+
+        } else if(faction == 'stormcasts') {
+            icon = stormcasts[num].icon;
+            allFronts.forEach( front => { front.setAttribute('style', 'background-image: url(./images/Stormcasts/stormcast-bg.jpg)') });
+        }
+
         allBacks[j].innerHTML = icon;
         allBacks[j + 1].innerHTML = icon;
         num++;
