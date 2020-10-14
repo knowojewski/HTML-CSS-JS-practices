@@ -1,0 +1,76 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #333333;
+}
+
+.container button {
+  border: none;
+  border-radius: 50px;
+  height: 60px;
+  width: 200px;
+  background: #526cff;
+  color: #ffffff;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}
+
+.container button:hover {
+  background: #7e91ff;
+}
+
+.container .ball {
+  border-radius: 50px;
+  position: absolute;
+}
+
+.container .animate {
+  -webkit-animation: ball-move 1s linear alternate infinite;
+          animation: ball-move 1s linear alternate infinite;
+}
+
+@-webkit-keyframes ball-move {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+  }
+}
+
+@keyframes ball-move {
+  0% {
+    -webkit-transform: translateX(-400px);
+            transform: translateX(-400px);
+  }
+  100% {
+    -webkit-transform: translateX(400px);
+            transform: translateX(400px);
+  }
+}
+/*# sourceMappingURL=style.css.map */

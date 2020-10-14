@@ -1,0 +1,45 @@
+html, body 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body 
+    height: 100vh
+
+.container 
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100%
+    background-color: #333333
+
+    button 
+        border: none
+        border-radius: 50px
+        height: 60px
+        width: 200px
+        background: #526cff
+        color: #ffffff
+        font-size: 20px
+        cursor: pointer
+        transition: background .3s
+
+    button:hover 
+        background: rgb(126, 145, 255)
+
+    .ball 
+        border-radius: 50px
+        position: absolute
+        
+    .animate
+        animation: ball-move 1s linear alternate infinite
+
+@keyframes ball-move
+    0% 
+        transform: translateX(-400px)
+        
+    100%
+        transform: translateX(400px)
+        
