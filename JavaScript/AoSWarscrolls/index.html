@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>AoS Short Warscroll</title>
+</head>
+<body>
+    <h1>Age of Sigmar Short Warscroll Generator</h1>
+
+    <div class="container">
+        <div class="left-tab">
+            <!-- <div class="unit-faction">
+                <select id="alliance-selector">
+                    <option value="chaos">Chaos</option>
+                    <option value="order">Order</option>
+                    <option value="death">Death</option>
+                    <option value="destruction">Destruction</option>
+                </select>
+            </div> -->
+            <form class="unit-infos">
+                <div class="box text-box">
+                    <label for="unit-info-text">Unit Allegiance:</label>
+                    <input type="text" id="unit-info-text">
+                </div>
+                <div class="box text-box">
+                    <label for="unit-info-text">Unit Name:</label>
+                    <input type="text" id="unit-info-text">
+                </div>
+                <div class="box number-box">
+                    <label for="unit-info-text">Unit Wounds:</label>
+                    <input type="text" id="unit-info-text">
+                </div>
+                <div class="box number-box">
+                    <label for="unit-info-text">Unit Move:</label>
+                    <input type="text" id="unit-info-text">
+                </div>
+                <div class="box number-box">
+                    <label for="unit-info-text">Unit Save:</label>
+                    <input type="text" id="unit-info-text">
+                    <p>+</p>
+                </div>
+                <div class="box number-box">
+                    <label for="unit-info-text">Unit Bravery:</label>
+                    <input type="text" id="unit-info-text">
+                </div>
+                <div class="box add-box">
+                    <div class="upper-side">
+                        <p>Add Unit Weapon</p>
+                        <button class="add-btn" id="addWeapon">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="lower-side">
+                        <div class="weapon">
+                            <input type="text" id="weaponName" placeholder="Name">
+                            <input type="text" id="weaponType">
+                            <input type="text" id="weaponRange">
+                            <input type="text" id="weaponHit">
+                            <input type="text" id="weaponWound">
+                            <input type="text" id="weaponRend">
+                            <input type="text" id="weaponDamage">
+                        </div>
+                    </div>
+                </div>
+                <div class="box add-box">
+                    <p>Add Unit Ability</p>
+                    <button class="add-btn" id="addAbility">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="box add-box">
+                    <p>Add Unit Keyword</p>
+                    <button class="add-btn" id="addKeyword">
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <div class="btn-box">
+                    <button class="btn" id="clearFields">Clear</button>
+                    <button class="btn" id="addWarscroll">Add</button>
+                </div>
+            </form>
+        </div>
+    
+        <div class="right-tab">
+            <div class="pdf-view">
+    
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="./generate.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
