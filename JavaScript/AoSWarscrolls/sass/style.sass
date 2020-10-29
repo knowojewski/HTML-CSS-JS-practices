@@ -21,6 +21,8 @@ h1
     justify-content: center
     margin: 40px 0
 
+// ============ LEFT SIDE =================
+
 .left-tab
     width: 40%
     height: auto
@@ -151,6 +153,10 @@ h1
     border: none
     cursor: pointer
 
+
+// ============ RIGHT SIDE =================
+
+
 .right-tab
     width: 740px
     padding: 10px
@@ -161,33 +167,6 @@ h1
         display: flex
         flex-wrap: wrap
 
-        .warscroll
-            height: 300px
-            width: 50%
-            padding: 5px 8px
-            border: 1px solid #000000
-
-        .warscroll-top
-            border-bottom: 1px solid #000000
-            width: 100%
-            display: flex 
-
-            .warscroll-top-name, .warscroll-top-weapons
-                display: flex
-                flex-direction: column
-                justify-content: flex-end
-                width: 50%
-
-                p:first-child
-                    font-weight: bold
-                    font-size: 16px
-
-                p:last-child
-                    font-size: 11px
-
-            .warscroll-top-weapons
-                font-size: 9px
-
     .generate-box
         width: 100%
         height: 100px
@@ -197,6 +176,57 @@ h1
         background: #ececec
         padding: 15px
         margin-top: 10px
+
+// ============ WARSCROLLS =================
+
+.warscroll
+    height: 300px
+    width: 50%
+    padding: 5px 8px
+    border: 1px solid #000000
+
+    .warscroll-top
+        border-bottom: 1px solid #000000
+        width: 100%
+        display: flex 
+
+        .warscroll-top-name, .warscroll-top-weapons
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            width: 50%
+
+            p:first-child
+                font-weight: bold
+                font-size: 16px
+
+            p:last-child
+                font-size: 11px
+
+        .warscroll-top-weapons
+            font-size: 9px
+
+    .warscroll-stats
+        width: 100%
+        display: flex
+        justify-content: space-evenly
+        border-bottom: 1px solid #000000
+        padding: 3px 0
+
+        .stats-box
+            display: flex 
+            align-items: center
+
+            i 
+                font-size: 23px
+                margin-right: 4px
+
+            span
+                font-size: 20px
+    
+    .warscroll-weapons-abilities
+        
+
 
 
 
