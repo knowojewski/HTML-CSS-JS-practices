@@ -27,11 +27,6 @@ h1
     padding: 30px
     background-color: #fff
 
-.right-tab 
-    width: 595px
-    height: 842px
-    background: #fff
-
 .unit-infos 
     display: flex
     flex-direction: column
@@ -39,6 +34,7 @@ h1
 
     .box
         display: flex
+        align-items: center
         margin: 8px 0
         width: 100%
 
@@ -47,6 +43,8 @@ h1
 
         input
             border: none
+            font-size: 15px
+            height: 30px
             padding: 4px
             border-bottom: 1px solid #40AFFF
 
@@ -80,6 +78,7 @@ h1
                 justify-content: center
                 align-items: center
                 position: relative
+                cursor: pointer
 
                 span 
                     position: absolute
@@ -96,22 +95,45 @@ h1
 
         .lower-side
             width: 100%
-            height: 30px
-            background: #333333
             margin-top: 10px
 
-            .weapon
+            .weapon, .ability, .keyword
                 width: 100%
                 display: flex
+                margin-bottom: 5px
 
                 input 
                     width: 10%
+                    border: none
+                    background: #ececec
+                    border-right: 2px solid #ffffff
+
+                input::placeholder
+                    font-style: italic
 
                 input:nth-child(1)
                     width: 30%
 
                 input:nth-child(2)
-                    width: 20%
+                    width: 15%
+
+                input:nth-child(3)
+                    width: 9%
+
+                input:nth-child(4)
+                    width: 9%
+
+                input:nth-child(5)
+                    width: 13%
+
+                input:nth-child(7)
+                    width: 14%
+
+            .ability
+                input:first-child
+    
+                input:last-child
+                    width: 70%
 
     .btn-box
         margin-top: 20px
@@ -119,13 +141,63 @@ h1
         display: flex
         justify-content: space-around
 
-        .btn
-            background-color: #40AFFF
-            color: #ffffff
-            font-size: 18px
-            width: 40%
-            height: 35px
-            border-radius: 3px
-            border: none
+.btn
+    background-color: #40AFFF
+    color: #ffffff
+    font-size: 18px
+    width: 40%
+    height: 35px
+    border-radius: 3px
+    border: none
+    cursor: pointer
+
+.right-tab
+    width: 740px
+    padding: 10px
+    background: #fff
+
+    .pdf-view
+        width: 100%
+        display: flex
+        flex-wrap: wrap
+
+        .warscroll
+            height: 300px
+            width: 50%
+            padding: 5px 8px
+            border: 1px solid #000000
+
+        .warscroll-top
+            border-bottom: 1px solid #000000
+            width: 100%
+            display: flex 
+
+            .warscroll-top-name, .warscroll-top-weapons
+                display: flex
+                flex-direction: column
+                justify-content: flex-end
+                width: 50%
+
+                p:first-child
+                    font-weight: bold
+                    font-size: 16px
+
+                p:last-child
+                    font-size: 11px
+
+            .warscroll-top-weapons
+                font-size: 9px
+
+    .generate-box
+        width: 100%
+        height: 100px
+        display: flex
+        justify-content: center
+        align-items: center
+        background: #ececec
+        padding: 15px
+        margin-top: 10px
+
+
 
     

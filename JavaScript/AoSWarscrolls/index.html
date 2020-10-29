@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>AoS Short Warscroll</title>
+    <title>AoS Mini Warscrolls</title>
 </head>
 <body>
-    <h1>Age of Sigmar Short Warscroll Generator</h1>
+    <h1>Age of Sigmar Mini Warscrolls Generator</h1>
 
     <div class="container">
         <div class="left-tab">
@@ -24,27 +24,33 @@
                     <label for="unit-info-text">Unit Allegiance:</label>
                     <input type="text" id="unit-info-text">
                 </div>
+
                 <div class="box text-box">
                     <label for="unit-info-text">Unit Name:</label>
                     <input type="text" id="unit-info-text">
                 </div>
+
                 <div class="box number-box">
                     <label for="unit-info-text">Unit Wounds:</label>
                     <input type="text" id="unit-info-text">
                 </div>
+
                 <div class="box number-box">
                     <label for="unit-info-text">Unit Move:</label>
                     <input type="text" id="unit-info-text">
                 </div>
+
                 <div class="box number-box">
                     <label for="unit-info-text">Unit Save:</label>
                     <input type="text" id="unit-info-text">
                     <p>+</p>
                 </div>
+
                 <div class="box number-box">
                     <label for="unit-info-text">Unit Bravery:</label>
                     <input type="text" id="unit-info-text">
                 </div>
+
                 <div class="box add-box">
                     <div class="upper-side">
                         <p>Add Unit Weapon</p>
@@ -56,29 +62,47 @@
                     <div class="lower-side">
                         <div class="weapon">
                             <input type="text" id="weaponName" placeholder="Name">
-                            <input type="text" id="weaponType">
-                            <input type="text" id="weaponRange">
-                            <input type="text" id="weaponHit">
-                            <input type="text" id="weaponWound">
-                            <input type="text" id="weaponRend">
-                            <input type="text" id="weaponDamage">
+                            <input type="text" id="weaponType" placeholder="Type">
+                            <input type="text" id="weaponRange" placeholder="Range">
+                            <input type="text" id="weaponHit" placeholder="To Hit">
+                            <input type="text" id="weaponWound" placeholder="To Wound">
+                            <input type="text" id="weaponRend" placeholder="Rend">
+                            <input type="text" id="weaponDamage" placeholder="Damage">
                         </div>
                     </div>
                 </div>
+
                 <div class="box add-box">
-                    <p>Add Unit Ability</p>
-                    <button class="add-btn" id="addAbility">
-                        <span></span>
-                        <span></span>
-                    </button>
+                    <div class="upper-side">
+                        <p>Add Unit Ability</p>
+                        <button class="add-btn" id="addAbility">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="lower-side">
+                        <div class="ability">
+                            <input type="text" id="abilityName" placeholder="Name">
+                            <input type="text" id="abilityDesc" placeholder="Description">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="box add-box">
-                    <p>Add Unit Keyword</p>
-                    <button class="add-btn" id="addKeyword">
-                        <span></span>
-                        <span></span>
-                    </button>
+                    <div class="upper-side">
+                        <p>Add Unit Keyword</p>
+                        <button class="add-btn" id="addKeyword">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                    <div class="lower-side">
+                        <div class="keyword">
+                            <input type="text" id="keywordName" placeholder="Name">
+                        </div>
+                    </div>
                 </div>
+
                 <div class="btn-box">
                     <button class="btn" id="clearFields">Clear</button>
                     <button class="btn" id="addWarscroll">Add</button>
@@ -88,15 +112,56 @@
     
         <div class="right-tab">
             <div class="pdf-view">
-    
+                <div class="warscroll">
+                    <div class="warscroll-top">
+                        <div class="warscroll-top-name">
+                            <p>CHAOS KNIGHTS</p>
+                            <p>ON WAR STEEDS</p>
+                        </div>
+                        <div class="warscroll-top-weapons">
+                            Enscrolled Weapon / Cursed Lance / Cursed Flail / Trampling Hooves
+                        </div>
+                    </div>
+                    <div class="warscroll-stats">
+
+                    </div>
+                    <div class="warscroll-weapons-abilities">
+
+                    </div>
+                    <div class="warscroll-keywords">
+
+                    </div>
+                </div>
+
+                <div class="warscroll">
+                    <div class="warscroll-top">
+                        <div class="warscroll-top-name">
+                            <p>CHAOS KNIGHTS</p>
+                            <p>ON WAR STEEDS</p>
+                        </div>
+                        <div class="warscroll-top-weapons">
+                            Enscrolled Weapon / Cursed Lance / Cursed Flail / Trampling Hooves
+                        </div>
+                    </div>
+                    <div class="warscroll-stats">
+
+                    </div>
+                    <div class="warscroll-weapons-abilities">
+
+                    </div>
+                    <div class="warscroll-keywords">
+
+                    </div>
+                </div>
+            </div>
+            <div class="generate-box">
+                <button class="btn generate-btn">Generate PDF</button>
             </div>
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
-    <script src="./generate.js"></script>
+    <script src="./html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>
