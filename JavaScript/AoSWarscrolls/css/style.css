@@ -328,4 +328,61 @@ h1 {
 .warscroll .warscroll-stats .stats-box span {
   font-size: 20px;
 }
+
+.warscroll .warscroll-weapons-abilities {
+  width: 100%;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px auto;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p {
+  font-size: 11px;
+  border: 1px solid #000;
+  padding: 2px 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(1) {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  border: none;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(5) {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=style.css.map */
