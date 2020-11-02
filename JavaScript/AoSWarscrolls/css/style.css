@@ -145,7 +145,7 @@ h1 {
   margin-top: 10px;
 }
 
-.unit-infos .add-box .lower-side .weapon, .unit-infos .add-box .lower-side .ability, .unit-infos .add-box .lower-side .keyword {
+.unit-infos .add-box .lower-side .weapon-add, .unit-infos .add-box .lower-side .ability-add, .unit-infos .add-box .lower-side .keyword-add {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -153,54 +153,58 @@ h1 {
   margin-bottom: 5px;
 }
 
-.unit-infos .add-box .lower-side .weapon input, .unit-infos .add-box .lower-side .ability input, .unit-infos .add-box .lower-side .keyword input {
+.unit-infos .add-box .lower-side .weapon-add input, .unit-infos .add-box .lower-side .ability-add input, .unit-infos .add-box .lower-side .keyword-add input {
   width: 10%;
   border: none;
   background: #ececec;
   border-right: 2px solid #ffffff;
 }
 
-.unit-infos .add-box .lower-side .weapon input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .ability input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .keyword input::-webkit-input-placeholder {
+.unit-infos .add-box .lower-side .weapon-add input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .ability-add input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input::-webkit-input-placeholder {
   font-style: italic;
 }
 
-.unit-infos .add-box .lower-side .weapon input:-ms-input-placeholder, .unit-infos .add-box .lower-side .ability input:-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword input:-ms-input-placeholder {
+.unit-infos .add-box .lower-side .weapon-add input:-ms-input-placeholder, .unit-infos .add-box .lower-side .ability-add input:-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input:-ms-input-placeholder {
   font-style: italic;
 }
 
-.unit-infos .add-box .lower-side .weapon input::-ms-input-placeholder, .unit-infos .add-box .lower-side .ability input::-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword input::-ms-input-placeholder {
+.unit-infos .add-box .lower-side .weapon-add input::-ms-input-placeholder, .unit-infos .add-box .lower-side .ability-add input::-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input::-ms-input-placeholder {
   font-style: italic;
 }
 
-.unit-infos .add-box .lower-side .weapon input::placeholder, .unit-infos .add-box .lower-side .ability input::placeholder, .unit-infos .add-box .lower-side .keyword input::placeholder {
+.unit-infos .add-box .lower-side .weapon-add input::placeholder, .unit-infos .add-box .lower-side .ability-add input::placeholder, .unit-infos .add-box .lower-side .keyword-add input::placeholder {
   font-style: italic;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(1), .unit-infos .add-box .lower-side .ability input:nth-child(1), .unit-infos .add-box .lower-side .keyword input:nth-child(1) {
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(1), .unit-infos .add-box .lower-side .ability-add input:nth-child(1), .unit-infos .add-box .lower-side .keyword-add input:nth-child(1) {
   width: 30%;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(2), .unit-infos .add-box .lower-side .ability input:nth-child(2), .unit-infos .add-box .lower-side .keyword input:nth-child(2) {
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(2), .unit-infos .add-box .lower-side .ability-add input:nth-child(2), .unit-infos .add-box .lower-side .keyword-add input:nth-child(2) {
   width: 15%;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(3), .unit-infos .add-box .lower-side .ability input:nth-child(3), .unit-infos .add-box .lower-side .keyword input:nth-child(3) {
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(3), .unit-infos .add-box .lower-side .ability-add input:nth-child(3), .unit-infos .add-box .lower-side .keyword-add input:nth-child(3) {
   width: 9%;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(4), .unit-infos .add-box .lower-side .ability input:nth-child(4), .unit-infos .add-box .lower-side .keyword input:nth-child(4) {
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(4), .unit-infos .add-box .lower-side .ability-add input:nth-child(4), .unit-infos .add-box .lower-side .keyword-add input:nth-child(4) {
   width: 9%;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(5), .unit-infos .add-box .lower-side .ability input:nth-child(5), .unit-infos .add-box .lower-side .keyword input:nth-child(5) {
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(5), .unit-infos .add-box .lower-side .ability-add input:nth-child(5), .unit-infos .add-box .lower-side .keyword-add input:nth-child(5) {
+  width: 9%;
+}
+
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(6), .unit-infos .add-box .lower-side .ability-add input:nth-child(6), .unit-infos .add-box .lower-side .keyword-add input:nth-child(6) {
   width: 13%;
 }
 
-.unit-infos .add-box .lower-side .weapon input:nth-child(7), .unit-infos .add-box .lower-side .ability input:nth-child(7), .unit-infos .add-box .lower-side .keyword input:nth-child(7) {
-  width: 14%;
+.unit-infos .add-box .lower-side .weapon-add input:nth-child(8), .unit-infos .add-box .lower-side .ability-add input:nth-child(8), .unit-infos .add-box .lower-side .keyword-add input:nth-child(8) {
+  width: 12%;
 }
 
-.unit-infos .add-box .lower-side .ability input:last-child {
+.unit-infos .add-box .lower-side .ability-add input:last-child {
   width: 70%;
 }
 
@@ -262,6 +266,13 @@ h1 {
   width: 50%;
   padding: 5px 8px;
   border: 1px solid #000000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .warscroll .warscroll-top {
@@ -286,12 +297,14 @@ h1 {
   width: 50%;
 }
 
-.warscroll .warscroll-top .warscroll-top-name p:first-child, .warscroll .warscroll-top .warscroll-top-weapons p:first-child {
+.warscroll .warscroll-top .warscroll-top-name p:first-child {
+  text-transform: uppercase;
   font-weight: bold;
   font-size: 16px;
 }
 
-.warscroll .warscroll-top .warscroll-top-name p:last-child, .warscroll .warscroll-top .warscroll-top-weapons p:last-child {
+.warscroll .warscroll-top .warscroll-top-name p:last-child {
+  text-transform: uppercase;
   font-size: 11px;
 }
 
@@ -331,6 +344,10 @@ h1 {
 
 .warscroll .warscroll-weapons-abilities {
   width: 100%;
+  border-bottom: 1px solid #000000;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .warscroll .warscroll-weapons-abilities .warscroll-weapons {
@@ -415,5 +432,28 @@ h1 {
 
 .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) p:first-child {
   background: #fff;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-abilities {
+  width: 100%;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability {
+  width: 100%;
+  font-size: 11px;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-name {
+  float: left;
+  font-style: italic;
+  margin-right: 3px;
+}
+
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-desc {
+  font-weight: bold;
+}
+
+.warscroll .warscroll-keywords {
+  font-size: 10px;
 }
 /*# sourceMappingURL=style.css.map */

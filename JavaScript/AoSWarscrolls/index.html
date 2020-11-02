@@ -65,17 +65,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="lower-side">
-                        <div class="weapon">
-                            <input type="text" id="weaponName" placeholder="Name">
-                            <input type="text" id="weaponType" placeholder="Type">
-                            <input type="text" id="weaponRange" placeholder="Range">
-                            <input type="text" id="weaponHit" placeholder="To Hit">
-                            <input type="text" id="weaponWound" placeholder="To Wound">
-                            <input type="text" id="weaponRend" placeholder="Rend">
-                            <input type="text" id="weaponDamage" placeholder="Damage">
-                        </div>
-                    </div>
+                    <div class="lower-side"></div>
                 </div>
 
                 <div class="box add-box">
@@ -86,12 +76,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="lower-side">
-                        <div class="ability">
-                            <input type="text" id="abilityName" placeholder="Name">
-                            <input type="text" id="abilityDesc" placeholder="Description">
-                        </div>
-                    </div>
+                    <div class="lower-side"></div>
                 </div>
 
                 <div class="box add-box">
@@ -102,11 +87,7 @@
                             <span></span>
                         </button>
                     </div>
-                    <div class="lower-side">
-                        <div class="keyword">
-                            <input type="text" id="keywordName" placeholder="Name">
-                        </div>
-                    </div>
+                    <div class="lower-side"></div>
                 </div>
 
                 <div class="btn-box">
@@ -118,6 +99,7 @@
     
         <div class="right-tab">
             <div class="pdf-view">
+
                 <div class="warscroll">
                     <div class="warscroll-top">
                         <div class="warscroll-top-name">
@@ -149,7 +131,7 @@
                     </div>
 
                     <div class="warscroll-weapons-abilities">
-                        <div class="warscroll-weapons">
+                        <!-- <div class="warscroll-weapons">
                             <div class="weapons-stats">
                                 <p></p>
                                 <p>Range</p>
@@ -195,42 +177,41 @@
                                 <p>-1</p>
                                 <p>1</p>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="warscroll-abilities">
                             <div class="ability">
                                 <p class="ability-name">
-
+                                    Chaos Runeshield: 
                                 </p>
                                 <p class="ability-desc">
-                                    
+                                    On 5+ negate NW or MW
+                                </p>
+                            </div>
+                            <div class="ability">
+                                <p class="ability-name">
+                                    Impaling Charge:
+                                </p>
+                                <p class="ability-desc">
+                                    +1 Dmg and +2 Rend to CL, if charged
+                                </p>
+                            </div>
+                            <div class="ability">
+                                <p class="ability-name">
+                                    Terrifying Champions:
+                                </p>
+                                <p class="ability-desc">
+                                    -1 to enemy bravery, in 3"
                                 </p>
                             </div>
                         </div> 
                     </div>
 
                     <div class="warscroll-keywords">
-
-                    </div>
-                </div>
-
-                <div class="warscroll">
-                    <div class="warscroll-top">
-                        <div class="warscroll-top-name">
-                            <p>CHAOS KNIGHTS</p>
-                            <p>ON WAR STEEDS</p>
-                        </div>
-                        <div class="warscroll-top-weapons">
-                            Enscrolled Weapon / Cursed Lance / Cursed Flail / Trampling Hooves
-                        </div>
-                    </div>
-                    <div class="warscroll-stats">
-
-                    </div>
-                    <div class="warscroll-weapons-abilities">
-
-                    </div>
-                    <div class="warscroll-keywords">
-
+                        <span>Chaos, </span>
+                        <span>Mortal, </span>
+                        <span>StD, </span>
+                        <span>Mark of Chaos, </span>
+                        <span>Chaos Knights</span>
                     </div>
                 </div>
             </div>
@@ -242,6 +223,7 @@
 
     <script src="./html2canvas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+    <script src="./warscroll.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>

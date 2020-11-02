@@ -99,7 +99,7 @@ h1
             width: 100%
             margin-top: 10px
 
-            .weapon, .ability, .keyword
+            .weapon-add, .ability-add, .keyword-add
                 width: 100%
                 display: flex
                 margin-bottom: 5px
@@ -126,12 +126,15 @@ h1
                     width: 9%
 
                 input:nth-child(5)
+                    width: 9%
+
+                input:nth-child(6)
                     width: 13%
 
-                input:nth-child(7)
-                    width: 14%
+                input:nth-child(8)
+                    width: 12%
 
-            .ability
+            .ability-add
                 input:first-child
     
                 input:last-child
@@ -184,6 +187,8 @@ h1
     width: 50%
     padding: 5px 8px
     border: 1px solid #000000
+    display: flex 
+    flex-direction: column
 
     .warscroll-top
         border-bottom: 1px solid #000000
@@ -195,12 +200,15 @@ h1
             flex-direction: column
             justify-content: flex-end
             width: 50%
-
+        
+        .warscroll-top-name
             p:first-child
+                text-transform: uppercase
                 font-weight: bold
                 font-size: 16px
 
             p:last-child
+                text-transform: uppercase
                 font-size: 11px
 
         .warscroll-top-weapons
@@ -226,6 +234,9 @@ h1
     
     .warscroll-weapons-abilities
         width: 100%
+        height: 
+        border-bottom: 1px solid #000000
+        flex: 1
 
         .warscroll-weapons
             width: 95%
@@ -284,7 +295,20 @@ h1
                     background: #fff
 
         .warscroll-abilities
-            
+            width: 100%
+
+            .ability
+                width: 100%
+                font-size: 11px
+
+                .ability-name
+                    float: left
+                    font-style: italic
+                    margin-right: 3px
+
+                .ability-desc
+                    font-weight: bold
 
 
-    
+    .warscroll-keywords
+        font-size: 10px
