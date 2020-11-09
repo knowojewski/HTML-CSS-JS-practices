@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400&display=swap')
+
+    
 html, *
     margin: 0
     padding: 0
     box-sizing: border-box
     font-family: sans-serif
+    letter-spacing: -0.3px
 
 body 
     background: #333333
@@ -104,7 +108,7 @@ h1
                 display: flex
                 margin-bottom: 5px
 
-                input 
+                input, select 
                     width: 10%
                     border: none
                     background: #ececec
@@ -135,10 +139,14 @@ h1
                     width: 12%
 
             .ability-add
-                input:first-child
+                select
+                    width: 20%
+
+                input:nth-child(2)
+                    width: 20%
     
                 input:last-child
-                    width: 70%
+                    width: 60%
 
     .btn-box
         margin-top: 20px
@@ -162,13 +170,16 @@ h1
 
 .right-tab
     width: 740px
-    padding: 10px
     background: #fff
+    display: flex
+    flex-direction: column
 
     .pdf-view
+        padding: 10px
         width: 100%
         display: flex
         flex-wrap: wrap
+        justify-content: center
 
     .generate-box
         width: 100%
@@ -183,8 +194,8 @@ h1
 // ============ WARSCROLLS =================
 
 .warscroll
-    height: 300px
-    width: 50%
+    height: 240px
+    width: 340px
     padding: 5px 8px
     border: 1px solid #000000
     display: flex 
@@ -194,24 +205,26 @@ h1
         border-bottom: 1px solid #000000
         width: 100%
         display: flex 
+        justify-content: space-between
 
         .warscroll-top-name, .warscroll-top-weapons
             display: flex
             flex-direction: column
             justify-content: flex-end
-            width: 50%
+            width: 48%
         
         .warscroll-top-name
             p:first-child
                 text-transform: uppercase
                 font-weight: bold
-                font-size: 16px
+                font-size: 12px
 
             p:last-child
                 text-transform: uppercase
-                font-size: 11px
+                font-size: 10px
 
         .warscroll-top-weapons
+            text-align: right
             font-size: 9px
 
     .warscroll-stats
@@ -242,7 +255,7 @@ h1
             width: 95%
             display: flex 
             flex-direction: column
-            margin: 10px auto
+            margin: 5px auto
 
             .weapons-stats, .weapon
                 width: 100%
@@ -260,6 +273,7 @@ h1
 
                 p:nth-child(1)
                     width: 8%
+                    padding-right: 1px
                     border: none
 
                 p:nth-child(2)
@@ -273,11 +287,11 @@ h1
                     width: 11%
 
             .weapon
-                margin-top: 3px
+                margin-top: 2px
 
                 p 
-                    height: 20px
-                    font-size: 15px
+                    height: 18px
+                    font-size: 14px
                     font-weight: bold
 
                     i 
@@ -286,7 +300,7 @@ h1
                 p:nth-child(1)
                     font-size: 12px
                     font-weight: normal
-                    justify-content: flex-start
+                    justify-content: flex-end
 
             .weapon:nth-child(even)
                 background: #e0e0e0
@@ -299,7 +313,13 @@ h1
 
             .ability
                 width: 100%
-                font-size: 11px
+                font-size: 10px
+
+                .ability-type
+                    float: left
+                    font-style: normal
+                    font-weight: bold
+                    margin-right: 3px
 
                 .ability-name
                     float: left
@@ -312,3 +332,19 @@ h1
 
     .warscroll-keywords
         font-size: 10px
+
+
+@media print 
+    body 
+        visibility: hidden
+
+    .pdf-view 
+        visibility: visible
+        background-color: white
+        width: 100%
+        position: fixed
+        top: 0
+        left: 0
+        margin: 0
+        padding: 15px
+      
