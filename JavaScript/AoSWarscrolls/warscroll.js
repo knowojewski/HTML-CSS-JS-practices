@@ -39,7 +39,8 @@ class Weapon {
 }
 
 class Ability {
-    constructor(name, description) {
+    constructor(type, name, description) {
+        this.type = type;
         this.name = name;
         this.description = description;
     }

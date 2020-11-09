@@ -17,7 +17,7 @@ const lowerSide = document.querySelectorAll('.lower-side');
 //            EVENT LISTENERS
 // ======================================
 
-generateBtn.addEventListener('click', getPDF);  
+generateBtn.addEventListener('click', () => { window.print(); });  
 addWarscroll.addEventListener('click', addWarscrollToView);
 addWeapon.addEventListener('click', addUnitWeapon);
 addAbility.addEventListener('click', addUnitAbility);
@@ -50,96 +50,121 @@ function createWarscroll(mount) {
     warscroll.weapons.forEach(item => weaponsArray.push(item.name));
 
     let newWarscroll = document.createElement('div');
+    let warscrollTop = document.createElement('div');
+    let warscrollStats = document.createElement('div');
+    let warscrollKeywords = document.createElement('div');
+    let warscrollWeaponsAbilities = document.createElement('div');
+    let warscrollWeapons = document.createElement('div');
+    let warscrollWeaponsStats = document.createElement('div');
+    let warscrollAbilities = document.createElement('div');
+
     newWarscroll.className = 'warscroll';
-    newWarscroll.innerHTML = `
-        <div class="warscroll-top">
-            <div class="warscroll-top-name">
-                <p>${warscroll.name}</p>
-                <p>${mount}</p>
-            </div>
-            <div class="warscroll-top-weapons">
-                <p>${weaponsArray.join(' / ')}</p>
-            </div>
+    warscrollTop.className = 'warscroll-top';
+    warscrollStats.className = 'warscroll-stats';
+    warscrollKeywords.className = 'warscroll-keywords';
+    warscrollWeaponsAbilities.className = 'warscroll-weapons-abilities';
+    warscrollWeapons.className = 'warscroll-weapons';
+    warscrollWeaponsStats.className = 'weapons-stats';
+    warscrollAbilities.className = 'warscroll-abilities';
+
+    console.log(warscroll);
+
+    warscrollTop.innerHTML = `
+        <div class="warscroll-top-name">
+            <p>${warscroll.name}</p>
+            <p>${mount}</p>
         </div>
-
-        <div class="warscroll-stats">
-            <div class="stats-box">
-                <i class="fas fa-external-link-alt"></i>
-                <span>${warscroll.move}"</span>
-            </div>
-            <div class="stats-box">
-                <i class="fas fa-shield-alt"></i>
-                <span>${warscroll.save}+</span>
-            </div>
-            <div class="stats-box">
-                <i class="fas fa-skull"></i>
-                <span>${warscroll.wounds}</span>
-            </div>
-            <div class="stats-box">
-                <i class="fas fa-star"></i>
-                <span>${warscroll.bravery}</span>
-            </div>
+        <div class="warscroll-top-weapons">
+            <p>${weaponsArray.join(' / ')}</p>
         </div>
-
-        <div class="warscroll-weapons-abilities">
-            <div class="warscroll-weapons">
-                <div class="weapons-stats">
-                    <p></p>
-                    <p>Range</p>
-                    <p>Attack</p>
-                    <p>To Hit</p>
-                    <p>To Wound</p>
-                    <p>Rend</p>
-                    <p>Dmg</p>
-                </div>
-            </div>
-            <div class="warscroll-abilities">
-                <div class="ability">
-                    <p class="ability-name">
-                        Chaos Runeshield: 
-                    </p>
-                    <p class="ability-desc">
-                        On 5+ negate NW or MW
-                    </p>
-                </div>
-                <div class="ability">
-                    <p class="ability-name">
-                        Impaling Charge:
-                    </p>
-                    <p class="ability-desc">
-                        +1 Dmg and +2 Rend to CL, if charged
-                    </p>
-                </div>
-                <div class="ability">
-                    <p class="ability-name">
-                        Terrifying Champions:
-                    </p>
-                    <p class="ability-desc">
-                        -1 to enemy bravery, in 3"
-                    </p>
-                </div>
-            </div> 
+    `;
+    warscrollStats.innerHTML = `
+        <div class="stats-box">
+            <i class="fas fa-external-link-alt"></i>
+            <span>${warscroll.move}"</span>
         </div>
+        <div class="stats-box">
+            <i class="fas fa-shield-alt"></i>
+            <span>${warscroll.save}+</span>
+        </div>
+        <div class="stats-box">
+            <i class="fas fa-skull"></i>
+            <span>${warscroll.wounds}</span>
+        </div>
+        <div class="stats-box">
+            <i class="fas fa-star"></i>
+            <span>${warscroll.bravery}</span>
+        </div>
+    `;
+    warscrollKeywords.innerHTML = `<p>${keywordsArray.join(', ')}</p>`;
+    warscrollWeaponsStats.innerHTML = `
+        <p></p>
+        <p>Range</p>
+        <p>Attack</p>
+        <p>To Hit</p>
+        <p>To Wound</p>
+        <p>Rend</p>
+        <p>Dmg</p>
+    `;
 
-        <div class="warscroll-keywords">
-            <p>${keywordsArray.join(', ')}</p>
-        </div>`
-
-    const weaponsTable = document.querySelector('.warscroll-weapons');
+    warscrollWeapons.appendChild(warscrollWeaponsStats);
     warscroll.weapons.forEach(item => {
-        let newWeapon = document.createElement('div');
-        newWeapon.className = 'weapon';
-        newWeapon.innerHTML = `
-            <p>EW</p>
-            <p><i class="fas fa-gavel"></i> ${item.range}"</p>
+        let warscrollWeapon = document.createElement('div');
+        warscrollWeapon.className = 'weapon';
+        let icon;
+        let str = item.name;
+        let matches = str.match(/\b(\w)/g);
+        let acronym = matches.join('');
+
+        if(item.type === 'Ranged') {
+            icon = '<i class="fas fa-expand-arrows-alt"></i>';
+        } else {
+            icon = '<i class="fas fa-gavel"></i>';
+        }
+
+        warscrollWeapon.innerHTML = `
+            <p>${acronym}</p>
+            <p>${icon} ${item.range}"</p>
             <p>${item.attack}</p>
             <p>${item.hit}+</p>
             <p>${item.wound}+</p>
             <p>-${item.rend}</p>
-            <p>${item.damage}</p>`
+            <p>${item.damage}</p>
+        `;
 
-        weaponsTable.appendChild(newWeapon);
+        warscrollWeapons.appendChild(warscrollWeapon);
     });
+
+    warscroll.abilities.forEach(item => {
+        let warscrollAbility = document.createElement('div');
+        warscrollAbility.className = 'ability';
+
+        let str = item.type;
+        let matches = str.match(/\b(\w)/g);
+        let acronym = matches.join('');
+
+        warscrollAbility.innerHTML = `
+            <p class="ability-type">
+                ${acronym} 
+            </p>
+            <p class="ability-name">
+                ${item.name}: 
+            </p>
+            <p class="ability-desc">
+                ${item.description}
+            </p>
+        `;
+
+        warscrollAbilities.appendChild(warscrollAbility);
+    });
+
+    warscrollWeaponsAbilities.appendChild(warscrollWeapons);
+    warscrollWeaponsAbilities.appendChild(warscrollAbilities);
+
+    newWarscroll.appendChild(warscrollTop);
+    newWarscroll.appendChild(warscrollStats);
+    newWarscroll.appendChild(warscrollWeaponsAbilities);
+    newWarscroll.appendChild(warscrollKeywords);
 
     pdfFile.appendChild(newWarscroll);
 }
@@ -175,11 +200,13 @@ function createAbilities(warscroll) {
     const allAbilityInputs = document.querySelectorAll('.ability-add');
 
     allAbilityInputs.forEach(item => {
-        let abilityName = item.children[0].value;
-        let abilityDesc = item.children[1].value;
+        let abilityType = item.children[0].value;
+        let abilityName = item.children[1].value;
+        let abilityDesc = item.children[2].value;
 
         const newAbility = new Ability();
 
+        newAbility.type = abilityType;
         newAbility.name = abilityName;
         newAbility.description = abilityDesc;
 
@@ -226,7 +253,10 @@ function addUnitWeapon(e) {
     newWeapon.className = 'weapon-add';
     newWeapon.innerHTML = `
         <input type="text" id="weaponName" placeholder="Name">
-        <input type="text" id="weaponType" placeholder="Type">
+        <select id="abilityType">
+            <option value="Melee">Melee</option>
+            <option value="Ranged">Ranged</option>
+        </select>
         <input type="text" id="weaponRange" placeholder="Range">
         <input type="text" id="weaponAttack" placeholder="Attack">
         <input type="text" id="weaponHit" placeholder="To Hit">
@@ -243,6 +273,11 @@ function addUnitAbility(e) {
     let newAbility = document.createElement('div');
     newAbility.className = 'ability-add';
     newAbility.innerHTML = `
+        <select id="abilityType">
+            <option value="Ability">Ability</option>
+            <option value="Command Ability">Command Ability</option>
+            <option value="Spell">Spell</option>
+        </select>
         <input type="text" id="abilityName" placeholder="Name">
         <input type="text" id="abilityDesc" placeholder="Description">`;
 
@@ -262,13 +297,18 @@ function addUnitKeyword(e) {
     e.preventDefault();
 }
 
-function getPDF() {
-    html2canvas(pdfFile).then(function(canvas) {
-        var img = canvas.toDataURL('image/png');
-        var doc = new jsPDF();
-        doc.addImage(img, 'JPEG', 10, 10);
-        doc.save('warscrolls.pdf');
-    });
+// function getPDF() {
+//     html2canvas(pdfFile).then(function(canvas) {
+//         var img = canvas.toDataURL('image/png');
+//         var doc = new jsPDF();
+//         doc.addImage(img, 'JPEG', 10, 10);
+//         doc.save('warscrolls.pdf');
+//     });
+// }
+
+function PrintElem(elem)
+{
+    window.print();
 }
 
 
