@@ -281,7 +281,7 @@ h1 {
   margin-top: 10px;
 }
 
-.warscroll {
+.warscroll, .warscroll-second-side {
   height: 240px;
   width: 340px;
   padding: 5px 8px;
@@ -293,9 +293,10 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  cursor: pointer;
 }
 
-.warscroll .warscroll-top {
+.warscroll .warscroll-top, .warscroll-second-side .warscroll-top {
   border-bottom: 1px solid #000000;
   width: 100%;
   display: -webkit-box;
@@ -306,7 +307,7 @@ h1 {
           justify-content: space-between;
 }
 
-.warscroll .warscroll-top .warscroll-top-name, .warscroll .warscroll-top .warscroll-top-weapons {
+.warscroll .warscroll-top .warscroll-top-name, .warscroll .warscroll-top .warscroll-top-weapons, .warscroll-second-side .warscroll-top .warscroll-top-name, .warscroll-second-side .warscroll-top .warscroll-top-weapons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -320,23 +321,23 @@ h1 {
   width: 48%;
 }
 
-.warscroll .warscroll-top .warscroll-top-name p:first-child {
+.warscroll .warscroll-top .warscroll-top-name p:first-child, .warscroll-second-side .warscroll-top .warscroll-top-name p:first-child {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 12px;
 }
 
-.warscroll .warscroll-top .warscroll-top-name p:last-child {
+.warscroll .warscroll-top .warscroll-top-name p:last-child, .warscroll-second-side .warscroll-top .warscroll-top-name p:last-child {
   text-transform: uppercase;
   font-size: 10px;
 }
 
-.warscroll .warscroll-top .warscroll-top-weapons {
+.warscroll .warscroll-top .warscroll-top-weapons, .warscroll-second-side .warscroll-top .warscroll-top-weapons {
   text-align: right;
   font-size: 9px;
 }
 
-.warscroll .warscroll-stats {
+.warscroll .warscroll-stats, .warscroll-second-side .warscroll-stats {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -348,7 +349,7 @@ h1 {
   padding: 3px 0;
 }
 
-.warscroll .warscroll-stats .stats-box {
+.warscroll .warscroll-stats .stats-box, .warscroll-second-side .warscroll-stats .stats-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -357,16 +358,16 @@ h1 {
           align-items: center;
 }
 
-.warscroll .warscroll-stats .stats-box i {
+.warscroll .warscroll-stats .stats-box i, .warscroll-second-side .warscroll-stats .stats-box i {
   font-size: 23px;
   margin-right: 4px;
 }
 
-.warscroll .warscroll-stats .stats-box span {
+.warscroll .warscroll-stats .stats-box span, .warscroll-second-side .warscroll-stats .stats-box span {
   font-size: 20px;
 }
 
-.warscroll .warscroll-weapons-abilities {
+.warscroll .warscroll-weapons-abilities, .warscroll-second-side .warscroll-weapons-abilities {
   width: 100%;
   border-bottom: 1px solid #000000;
   -webkit-box-flex: 1;
@@ -374,7 +375,7 @@ h1 {
           flex: 1;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons {
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -386,14 +387,14 @@ h1 {
   margin: 5px auto;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats, .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats, .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p, .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p, .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p {
   font-size: 11px;
   border: 1px solid #000;
   border-right: none;
@@ -410,40 +411,40 @@ h1 {
           align-items: center;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(1), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(1), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(1), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1) {
   width: 8%;
   padding-right: 1px;
   border: none;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(2), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(2) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(2), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(2), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(2), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(2) {
   width: 17%;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(5), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(5) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(5), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(5), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(5), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(5) {
   width: 22%;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(7), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(7) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(7), .warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(7), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapons-stats p:nth-child(7), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(7) {
   border-right: 1px solid #000000;
   width: 11%;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon {
   margin-top: 2px;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p {
   height: 18px;
   font-size: 14px;
   font-weight: bold;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p i {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p i, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p i {
   margin-right: 5px;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon p:nth-child(1) {
   font-size: 12px;
   font-weight: normal;
   -webkit-box-pack: end;
@@ -451,50 +452,52 @@ h1 {
           justify-content: flex-end;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even), .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) {
   background: #e0e0e0;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) p:first-child {
+.warscroll .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) p:first-child, .warscroll-second-side .warscroll-weapons-abilities .warscroll-weapons .weapon:nth-child(even) p:first-child {
   background: #fff;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-abilities {
+.warscroll .warscroll-weapons-abilities .warscroll-abilities, .warscroll-second-side .warscroll-weapons-abilities .warscroll-abilities {
   width: 100%;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability {
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability, .warscroll-second-side .warscroll-weapons-abilities .warscroll-abilities .ability {
   width: 100%;
   font-size: 10px;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-type {
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-type, .warscroll-second-side .warscroll-weapons-abilities .warscroll-abilities .ability .ability-type {
   float: left;
   font-style: normal;
   font-weight: bold;
   margin-right: 3px;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-name {
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-name, .warscroll-second-side .warscroll-weapons-abilities .warscroll-abilities .ability .ability-name {
   float: left;
   font-style: italic;
   margin-right: 3px;
 }
 
-.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-desc {
+.warscroll .warscroll-weapons-abilities .warscroll-abilities .ability .ability-desc, .warscroll-second-side .warscroll-weapons-abilities .warscroll-abilities .ability .ability-desc {
   font-weight: bold;
 }
 
-.warscroll .warscroll-keywords {
+.warscroll .warscroll-keywords, .warscroll-second-side .warscroll-keywords {
   font-size: 10px;
 }
 
 @media print {
-  body {
-    visibility: hidden;
+  .left-tab {
+    display: none;
   }
   .pdf-view {
-    visibility: visible;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     background-color: white;
     width: 100%;
     position: fixed;

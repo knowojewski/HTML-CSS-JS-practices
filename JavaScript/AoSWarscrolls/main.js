@@ -17,7 +17,12 @@ const lowerSide = document.querySelectorAll('.lower-side');
 //            EVENT LISTENERS
 // ======================================
 
-generateBtn.addEventListener('click', () => { window.print(); });  
+generateBtn.addEventListener('click', () => { 
+    // let temp = body.innerHTML;
+    // body.innerHTML = pdfFile.innerHTML;
+    
+    window.print();
+});  
 addWarscroll.addEventListener('click', addWarscrollToView);
 addWeapon.addEventListener('click', addUnitWeapon);
 addAbility.addEventListener('click', addUnitAbility);
@@ -66,8 +71,6 @@ function createWarscroll(mount) {
     warscrollWeapons.className = 'warscroll-weapons';
     warscrollWeaponsStats.className = 'weapons-stats';
     warscrollAbilities.className = 'warscroll-abilities';
-
-    console.log(warscroll);
 
     warscrollTop.innerHTML = `
         <div class="warscroll-top-name">
@@ -167,6 +170,13 @@ function createWarscroll(mount) {
     newWarscroll.appendChild(warscrollKeywords);
 
     pdfFile.appendChild(newWarscroll);
+
+    const allWarscrolls = document.querySelectorAll('.warscroll');
+    allWarscrolls.forEach((item) => { 
+        item.addEventListener('click', pointWarscroll) 
+    });
+
+    splitWarscroll(newWarscroll);
 }
 
 function createWeapons(warscroll) {
@@ -242,7 +252,6 @@ function checkIfMount() {
 
 function addWarscrollToView(e) {
     let mount = checkIfMount();
-    console.log(mount);
     createWarscroll(mount);
 
     e.preventDefault();
@@ -306,9 +315,12 @@ function addUnitKeyword(e) {
 //     });
 // }
 
-function PrintElem(elem)
-{
-    window.print();
+function pointWarscroll(elem) {
+    console.log(elem.target.closest('.warscroll'));
+}
+
+function splitWarscroll(warscroll) {
+    console.log(warscroll)
 }
 
 

@@ -193,13 +193,14 @@ h1
 
 // ============ WARSCROLLS =================
 
-.warscroll
+.warscroll, .warscroll-second-side
     height: 240px
     width: 340px
     padding: 5px 8px
     border: 1px solid #000000
     display: flex 
     flex-direction: column
+    cursor: pointer
 
     .warscroll-top
         border-bottom: 1px solid #000000
@@ -335,11 +336,11 @@ h1
 
 
 @media print 
-    body 
-        visibility: hidden
+    .left-tab
+        display: none 
 
     .pdf-view 
-        visibility: visible
+        display: flex
         background-color: white
         width: 100%
         position: fixed
@@ -347,4 +348,3 @@ h1
         left: 0
         margin: 0
         padding: 15px
-      
