@@ -17,12 +17,7 @@ const lowerSide = document.querySelectorAll('.lower-side');
 //            EVENT LISTENERS
 // ======================================
 
-generateBtn.addEventListener('click', () => { 
-    // let temp = body.innerHTML;
-    // body.innerHTML = pdfFile.innerHTML;
-    
-    window.print();
-});  
+generateBtn.addEventListener('click', () => { window.print() });  
 addWarscroll.addEventListener('click', addWarscrollToView);
 addWeapon.addEventListener('click', addUnitWeapon);
 addAbility.addEventListener('click', addUnitAbility);
@@ -33,6 +28,7 @@ addKeyword.addEventListener('click', addUnitKeyword);
 //               FUNCTIONS
 // ======================================
 
+// CREATING WARSCROLL CARD
 
 function createWarscroll(mount) {
     const warscroll = new Warscroll();
@@ -55,6 +51,7 @@ function createWarscroll(mount) {
     warscroll.weapons.forEach(item => weaponsArray.push(item.name));
 
     let newWarscroll = document.createElement('div');
+    let warscrollFront = document.createElement('div');
     let warscrollTop = document.createElement('div');
     let warscrollStats = document.createElement('div');
     let warscrollKeywords = document.createElement('div');
@@ -64,6 +61,7 @@ function createWarscroll(mount) {
     let warscrollAbilities = document.createElement('div');
 
     newWarscroll.className = 'warscroll';
+    warscrollFront.className = 'warscroll-front';
     warscrollTop.className = 'warscroll-top';
     warscrollStats.className = 'warscroll-stats';
     warscrollKeywords.className = 'warscroll-keywords';
@@ -164,20 +162,20 @@ function createWarscroll(mount) {
     warscrollWeaponsAbilities.appendChild(warscrollWeapons);
     warscrollWeaponsAbilities.appendChild(warscrollAbilities);
 
-    newWarscroll.appendChild(warscrollTop);
-    newWarscroll.appendChild(warscrollStats);
-    newWarscroll.appendChild(warscrollWeaponsAbilities);
-    newWarscroll.appendChild(warscrollKeywords);
+    warscrollFront.appendChild(warscrollTop);
+    warscrollFront.appendChild(warscrollStats);
+    warscrollFront.appendChild(warscrollWeaponsAbilities);
+    warscrollFront.appendChild(warscrollKeywords);
+
+    newWarscroll.appendChild(warscrollFront);
+    newWarscroll.addEventListener('click', pointWarscroll); 
 
     pdfFile.appendChild(newWarscroll);
 
-    const allWarscrolls = document.querySelectorAll('.warscroll');
-    allWarscrolls.forEach((item) => { 
-        item.addEventListener('click', pointWarscroll) 
-    });
-
     splitWarscroll(newWarscroll);
 }
+
+// CREATING WEAPON OBJECTS AND ADDING TO WARSCROLL CARD
 
 function createWeapons(warscroll) {
     const allWeaponsInputs = document.querySelectorAll('.weapon-add');
@@ -206,6 +204,8 @@ function createWeapons(warscroll) {
     });
 }
 
+// CREATING ABILITY OBJECTS AND ADDING TO WARSCROLL CARD
+
 function createAbilities(warscroll) {
     const allAbilityInputs = document.querySelectorAll('.ability-add');
 
@@ -224,6 +224,8 @@ function createAbilities(warscroll) {
     });
 }
 
+// CREATING KEYWORD OBJECTS AND ADDING TO WARSCROLL CARD
+
 function createKeywords(warscroll) {
     const allKeywordsInputs = document.querySelectorAll('.keyword-add');
 
@@ -238,6 +240,8 @@ function createKeywords(warscroll) {
     });
 }
 
+// CHECKING IF UNIT HAS A MOUNT
+
 function checkIfMount() {
     let mount = document.createElement('p');
 
@@ -250,12 +254,16 @@ function checkIfMount() {
     return mount;
 }
 
+// ADDING WARSCROLL CARD TO PRINT VIEW
+
 function addWarscrollToView(e) {
     let mount = checkIfMount();
     createWarscroll(mount);
 
     e.preventDefault();
 }
+
+// ADDING INPUTS TO CREATE WEAPON OBJECT
 
 function addUnitWeapon(e) {
     let newWeapon = document.createElement('div');
@@ -278,6 +286,8 @@ function addUnitWeapon(e) {
     e.preventDefault();
 }
 
+// ADDING INPUTS TO CREATE ABILITY OBJECT
+
 function addUnitAbility(e) {
     let newAbility = document.createElement('div');
     newAbility.className = 'ability-add';
@@ -294,6 +304,8 @@ function addUnitAbility(e) {
 
     e.preventDefault();
 }
+
+// ADDING INPUTS TO CREATE KEYWORD OBJECT
 
 function addUnitKeyword(e) {
     let newKeyword = document.createElement('div');
@@ -315,13 +327,66 @@ function addUnitKeyword(e) {
 //     });
 // }
 
+// CHECKING IF WARSCROLL IS HIGHER THAN DEFAULT
+// IF IS THEN CREATING WARSCROLL BACKSIDE AND ADDING ABILITIES TO IT
+
+function splitWarscroll(warscroll) {
+    let front = warscroll.children[0];
+    let array = Array.from(front.children);
+    let result = 0;
+
+    array.forEach( item => {
+        result += item.offsetHeight;
+    });
+
+    console.log(result)
+
+    if(result > 230) {
+        console.log('Is higher!');
+        const warscrollBack = document.createElement('div');
+        warscrollBack.className = 'warscroll-back';
+        const frontTop = warscroll.children[0].children[0];
+        const backTop = document.createElement('div');
+        backTop.className = 'warscroll-top';
+        const frontKeywords = warscroll.children[0].children[3];
+        const backKeywords = document.createElement('div');
+        backKeywords.className = 'warscroll-keywords';
+        const frontAbilities = warscroll.children[0].children[2].children[1];
+        const frontAbilitiesArray = Array.from(warscroll.children[0].children[2].children[1].children);
+        const backAbilities = document.createElement('div');
+        backAbilities.className = 'warscroll-abilities';
+
+        console.log(frontAbilitiesArray);
+        let newResult = result;
+        
+        for(let i = frontAbilitiesArray.length-1; i >= 0; i--) {
+            if(newResult>228) {
+                console.log('Is higher in a loop!');
+                console.log(frontAbilitiesArray[i]);
+                newResult -= frontAbilitiesArray[i].offsetHeight;
+                frontAbilities.removeChild(frontAbilities.lastChild);
+
+                backAbilities.prepend(frontAbilitiesArray[i]);
+                frontAbilitiesArray.splice(i, 1);
+            } else {
+                break;
+            }
+        }
+
+        console.log(frontAbilitiesArray);
+
+        backTop.innerHTML = frontTop.innerHTML;
+        backKeywords.innerHTML = frontKeywords.innerHTML;
+        warscrollBack.appendChild(backTop);
+        warscrollBack.appendChild(backAbilities);
+        warscrollBack.appendChild(backKeywords);
+        warscroll.appendChild(warscrollBack);
+    } else {
+        console.log('Is not higher!');
+    }
+}
+
 function pointWarscroll(elem) {
     console.log(elem.target.closest('.warscroll'));
 }
-
-function splitWarscroll(warscroll) {
-    console.log(warscroll)
-}
-
-
 
