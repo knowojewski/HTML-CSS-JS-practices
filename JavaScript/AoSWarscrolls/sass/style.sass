@@ -108,6 +108,15 @@ h1
                 display: flex
                 margin-bottom: 5px
 
+                .attributes-btn
+                    border: none
+                    width: 30px
+                    height: 30px
+                    background: #d64a4a
+                    font-size: 20px
+                    color: #ffffff
+                    cursor: pointer
+
                 input, select 
                     width: 10%
                     border: none
@@ -145,7 +154,7 @@ h1
                 input:nth-child(2)
                     width: 20%
     
-                input:last-child
+                input:nth-child(3)
                     width: 60%
 
     .btn-box
@@ -196,8 +205,11 @@ h1
 .warscroll
     display: flex
     background: #fff
-    transition: transform .5s, border .5s
     border: 1px solid #000000
+    box-shadow: none
+    transition: transform .3s, border .3s, box-shadow .3s
+    position: relative
+    overflow: hidden
 
 .warscroll-back
     border-left: 1px solid #000000
@@ -320,6 +332,23 @@ h1
     .warscroll-keywords
         font-size: 10px
 
+.warscroll-panel
+    display: flex 
+    justify-content: center
+    align-items: center
+    height: 100%
+    width: 100%
+    position: absolute
+    background: rgba(0, 0, 0, 0.801)
+    transform: translateX(100%)
+    transition: transform .3s
+
+    .warscroll-delete 
+        background: #d64a4a
+
+.warscroll-panel.turn-on
+    transform: translateX(0)
+
 .warscroll-abilities
     width: 100%
 
@@ -370,3 +399,7 @@ h1
         left: 0
         margin: 0
         padding: 15px
+
+
+
+

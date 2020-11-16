@@ -155,6 +155,16 @@ h1 {
   margin-bottom: 5px;
 }
 
+.unit-infos .add-box .lower-side .weapon-add .attributes-btn, .unit-infos .add-box .lower-side .ability-add .attributes-btn, .unit-infos .add-box .lower-side .keyword-add .attributes-btn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: #d64a4a;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .unit-infos .add-box .lower-side .weapon-add input, .unit-infos .add-box .lower-side .weapon-add select, .unit-infos .add-box .lower-side .ability-add input, .unit-infos .add-box .lower-side .ability-add select, .unit-infos .add-box .lower-side .keyword-add input, .unit-infos .add-box .lower-side .keyword-add select {
   width: 10%;
   border: none;
@@ -214,7 +224,7 @@ h1 {
   width: 20%;
 }
 
-.unit-infos .add-box .lower-side .ability-add input:last-child {
+.unit-infos .add-box .lower-side .ability-add input:nth-child(3) {
   width: 60%;
 }
 
@@ -286,11 +296,15 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   background: #fff;
-  -webkit-transition: border .5s, -webkit-transform .5s;
-  transition: border .5s, -webkit-transform .5s;
-  transition: transform .5s, border .5s;
-  transition: transform .5s, border .5s, -webkit-transform .5s;
   border: 1px solid #000000;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: border .3s, -webkit-transform .3s, -webkit-box-shadow .3s;
+  transition: border .3s, -webkit-transform .3s, -webkit-box-shadow .3s;
+  transition: transform .3s, border .3s, box-shadow .3s;
+  transition: transform .3s, border .3s, box-shadow .3s, -webkit-transform .3s, -webkit-box-shadow .3s;
+  position: relative;
+  overflow: hidden;
 }
 
 .warscroll-back {
@@ -477,6 +491,37 @@ h1 {
 
 .warscroll-front .warscroll-keywords, .warscroll-back .warscroll-keywords {
   font-size: 10px;
+}
+
+.warscroll-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.801);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+.warscroll-panel .warscroll-delete {
+  background: #d64a4a;
+}
+
+.warscroll-panel.turn-on {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .warscroll-abilities {
