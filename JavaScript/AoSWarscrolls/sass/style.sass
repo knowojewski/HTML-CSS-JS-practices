@@ -1,15 +1,213 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,300;1,400&display=swap')
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&display=swap')
+$yellow-collor: #E7AC51
+$grey: #665F55
+$dark-grey: #272b2a
     
 html, *
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: sans-serif
+    font-family: 'Montserrat', sans-serif
     letter-spacing: -0.3px
 
 body 
-    background: #333333
+    background: #F3F3F3
+
+.main 
+    display: flex
+    height: 100vh
+
+
+//=================================
+//         CONTROL PANEL
+//=================================
+
+
+.control-panel
+    position: fixed
+    width: 300px
+    height: 100%
+    background: $grey
+    overflow: hidden
+    z-index: 2
+
+    .control-panel__top
+
+    .control-panel__actions
+        flex: 1
+
+    .control-panel__bottom
+        position: absolute
+        bottom: -80px
+        left: 0
+        width: 100%
+
+        svg
+            width: 100%
+            
+
+
+//=================================
+//           ADDING BOX
+//=================================
+
+
+.adding-box
+    position: fixed
+    width: 700px
+    height: 600px
+    background: #fff
+    top: 153px
+    left: 0
+    z-index: 1
+    transform: translateX(300px)
+    box-shadow: 2px 0 10px 1px #3333333f
+
+    .adding-box__top
+        width: 100%
+        height: 50px
+        background: $dark-grey
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+
+        .adding-box__heading
+            position: relative
+            color: #F5F5F5
+            font-weight: 400
+
+        .adding-box__heading::before, .adding-box__heading::after
+            position: absolute
+            content: ''
+            height: 2px
+            background: #f5f5f5
+            width: 150px
+            top: 50%
+
+        .adding-box__heading::before
+            left: -170px
+
+        .adding-box__heading::after
+            right: -170px
+
+        .adding-box__top-btn
+            position: absolute
+            background: transparent
+            width: 28px
+            height: 28px
+            right: 15px
+            border-radius: 50%
+            border: none
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            transition: background .3s
+            
+            span
+                position: absolute
+                display: block
+                background: $yellow-collor
+                width: 80%
+                height: 3px
+                transition: background .3s
+
+            .first
+                transform: rotateZ(45deg)
+
+            .second
+                transform: rotateZ(- 45deg)
+
+        .adding-box__top-btn:hover
+            background: #f5f5f5
+
+            span
+                background: $dark-grey
+    
+
+//=================================
+//           MAIN VIEW
+//=================================
+
+
+.main-view
+    margin-left: 300px
+    padding: 30px
+
+    .main-view__heading
+        width: 100%
+
+        .main-view__heading-h1
+            font-size: 32px
+            font-weight: 400
+
+        hr
+            width: 30%
+            height: 5px
+            background: $yellow-collor
+            border: none
+            margin: 40px 0
+
+    .main-view__content
+        display: flex
+        width: 100%
+
+        .main-view__text
+            width: 40%
+            padding-right: 30px
+
+            .main-view__text-paragraph
+                font-size: 18px
+                text-align: justify
+                line-height: 1.4
+                margin-bottom: 20px
+
+        .main-view__print
+            padding-left: 100px
+            padding-bottom: 80px
+
+            .main-view__print-box
+                width: 740px
+                height: 900px
+                background: #fff
+                box-shadow: 0 0 10px 1px #3333333f
+
+                .main-view__print-top
+                .main-view__print-view
+                .main-view__print-bottom
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container 
     display: flex
@@ -18,12 +216,6 @@ body
     position: relative
     padding: 40px
     width: 100%
-
-h1 
-    color: #ffffff
-    display: flex
-    justify-content: center
-    margin: 40px 0
 
 // ============ LEFT SIDE =================
 
