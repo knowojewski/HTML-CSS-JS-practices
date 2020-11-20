@@ -26,23 +26,69 @@ body {
   background: #665F55;
   overflow: hidden;
   z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.control-panel .control-panel__top {
+  width: 100%;
+  height: 100px;
+  background: #272b2a;
+}
+
+.control-panel .control-panel__top img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .control-panel .control-panel__actions {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  width: 100%;
+}
+
+.control-panel .control-panel__actions .control-panel__heading {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.control-panel .control-panel__actions .control-panel__btns {
+  width: 100%;
+}
+
+.control-panel .control-panel__actions .control-panel__btns .control-panel__btn {
+  display: block;
+  width: 80%;
+  margin: 15px auto;
+}
+
+.control-panel .control-panel__actions .control-panel__btns .control-panel__btn:hover {
+  width: 100%;
 }
 
 .control-panel .control-panel__bottom {
-  position: absolute;
-  bottom: -80px;
-  left: 0;
-  width: 100%;
+  position: relative;
 }
 
 .control-panel .control-panel__bottom svg {
-  width: 100%;
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  z-index: 3;
+}
+
+.control-panel .control-panel__bottom .control-panel__text {
+  color: #f5f5f5;
+  position: relative;
+  z-index: 4;
 }
 
 .adding-box {
@@ -50,7 +96,7 @@ body {
   width: 700px;
   height: 600px;
   background: #fff;
-  top: 153px;
+  top: 167px;
   left: 0;
   z-index: 1;
   -webkit-transform: translateX(300px);
@@ -418,11 +464,9 @@ body {
 }
 
 .btn {
-  background-color: #40AFFF;
   color: #ffffff;
   font-size: 18px;
-  width: 40%;
-  height: 35px;
+  height: 50px;
   border-radius: 3px;
   border: none;
   cursor: pointer;
