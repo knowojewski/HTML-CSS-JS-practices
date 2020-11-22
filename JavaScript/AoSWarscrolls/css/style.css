@@ -19,6 +19,15 @@ body {
   height: 100vh;
 }
 
+.btn {
+  color: #ffffff;
+  font-size: 18px;
+  height: 50px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+}
+
 .control-panel {
   position: fixed;
   width: 300px;
@@ -254,7 +263,7 @@ body {
   width: 100%;
   height: 0;
   background: #fff;
-  overflow: hidden;
+  overflow: scroll;
   -webkit-transition: height .8s;
   transition: height .8s;
 }
@@ -266,6 +275,200 @@ body {
   padding: 30px;
   -webkit-transition: opacity .2s;
   transition: opacity .2s;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .box label {
+  width: 30%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .box input {
+  border: none;
+  font-size: 15px;
+  height: 30px;
+  padding: 4px;
+  border-bottom: 1px solid #40AFFF;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .text-box input {
+  width: 70%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .number-box input {
+  width: 10%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side p {
+  width: 30%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn {
+  width: 35px;
+  height: 35px;
+  background: #40AFFF;
+  border: none;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn span {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #fff;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn span:last-child {
+  width: 2px;
+  height: 25px;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add .attributes-btn, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add .attributes-btn, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add .attributes-btn {
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: #d64a4a;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add select, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add select, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add select {
+  width: 10%;
+  border: none;
+  background: #ececec;
+  border-right: 2px solid #ffffff;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input::-webkit-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input::-webkit-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:-ms-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:-ms-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:-ms-input-placeholder {
+  font-style: italic;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input::-ms-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input::-ms-input-placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input::-ms-input-placeholder {
+  font-style: italic;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input::placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input::placeholder, .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input::placeholder {
+  font-style: italic;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(1), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(1), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(1) {
+  width: 30%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(2), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(2), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(2) {
+  width: 15%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(3), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(3), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(3) {
+  width: 9%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(4), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(4), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(4) {
+  width: 9%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(5), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(5), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(5) {
+  width: 9%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(6), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(6), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(6) {
+  width: 13%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(8), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(8), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(8) {
+  width: 12%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add select {
+  width: 20%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(2) {
+  width: 20%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(3) {
+  width: 60%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .btn-box {
+  margin-top: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .adding-box .adding-box__main .adding-box__content.opened {
@@ -329,76 +532,9 @@ body {
 
 .main-view .main-view__content .main-view__print .main-view__print-box {
   width: 740px;
-  height: 900px;
   background: #fff;
   -webkit-box-shadow: 0 0 10px 1px #3333333f;
           box-shadow: 0 0 10px 1px #3333333f;
-}
-
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  position: relative;
-  padding: 40px;
-  width: 100%;
-}
-
-.left-tab {
-  width: 40%;
-  height: auto;
-  padding: 30px;
-  background-color: #fff;
-}
-
-.unit-infos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-}
-
-.unit-infos .box {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 8px 0;
-  width: 100%;
-}
-
-.unit-infos .box label {
-  width: 30%;
-}
-
-.unit-infos .box input {
-  border: none;
-  font-size: 15px;
-  height: 30px;
-  padding: 4px;
-  border-bottom: 1px solid #40AFFF;
-}
-
-.unit-infos .text-box input {
-  width: 70%;
-}
-
-.unit-infos .number-box input {
-  width: 10%;
-}
-
-.unit-infos .add-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -408,170 +544,13 @@ body {
           flex-direction: column;
 }
 
-.unit-infos .add-box .upper-side {
+.main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-top {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.unit-infos .add-box .upper-side p {
-  width: 30%;
-}
-
-.unit-infos .add-box .upper-side .add-btn {
-  width: 35px;
-  height: 35px;
-  background: #40AFFF;
-  border: none;
-  border-radius: 3px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  cursor: pointer;
-}
-
-.unit-infos .add-box .upper-side .add-btn span {
-  position: absolute;
-  display: block;
-  width: 25px;
-  height: 2px;
-  background: #fff;
-}
-
-.unit-infos .add-box .upper-side .add-btn span:last-child {
-  width: 2px;
-  height: 25px;
-}
-
-.unit-infos .add-box .lower-side {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.unit-infos .add-box .lower-side .weapon-add, .unit-infos .add-box .lower-side .ability-add, .unit-infos .add-box .lower-side .keyword-add {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 5px;
-}
-
-.unit-infos .add-box .lower-side .weapon-add .attributes-btn, .unit-infos .add-box .lower-side .ability-add .attributes-btn, .unit-infos .add-box .lower-side .keyword-add .attributes-btn {
-  border: none;
-  width: 30px;
-  height: 30px;
-  background: #d64a4a;
-  font-size: 20px;
-  color: #ffffff;
-  cursor: pointer;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input, .unit-infos .add-box .lower-side .weapon-add select, .unit-infos .add-box .lower-side .ability-add input, .unit-infos .add-box .lower-side .ability-add select, .unit-infos .add-box .lower-side .keyword-add input, .unit-infos .add-box .lower-side .keyword-add select {
-  width: 10%;
-  border: none;
-  background: #ececec;
-  border-right: 2px solid #ffffff;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .ability-add input::-webkit-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input::-webkit-input-placeholder {
-  font-style: italic;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:-ms-input-placeholder, .unit-infos .add-box .lower-side .ability-add input:-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input:-ms-input-placeholder {
-  font-style: italic;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input::-ms-input-placeholder, .unit-infos .add-box .lower-side .ability-add input::-ms-input-placeholder, .unit-infos .add-box .lower-side .keyword-add input::-ms-input-placeholder {
-  font-style: italic;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input::placeholder, .unit-infos .add-box .lower-side .ability-add input::placeholder, .unit-infos .add-box .lower-side .keyword-add input::placeholder {
-  font-style: italic;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(1), .unit-infos .add-box .lower-side .ability-add input:nth-child(1), .unit-infos .add-box .lower-side .keyword-add input:nth-child(1) {
-  width: 30%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(2), .unit-infos .add-box .lower-side .ability-add input:nth-child(2), .unit-infos .add-box .lower-side .keyword-add input:nth-child(2) {
-  width: 15%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(3), .unit-infos .add-box .lower-side .ability-add input:nth-child(3), .unit-infos .add-box .lower-side .keyword-add input:nth-child(3) {
-  width: 9%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(4), .unit-infos .add-box .lower-side .ability-add input:nth-child(4), .unit-infos .add-box .lower-side .keyword-add input:nth-child(4) {
-  width: 9%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(5), .unit-infos .add-box .lower-side .ability-add input:nth-child(5), .unit-infos .add-box .lower-side .keyword-add input:nth-child(5) {
-  width: 9%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(6), .unit-infos .add-box .lower-side .ability-add input:nth-child(6), .unit-infos .add-box .lower-side .keyword-add input:nth-child(6) {
-  width: 13%;
-}
-
-.unit-infos .add-box .lower-side .weapon-add input:nth-child(8), .unit-infos .add-box .lower-side .ability-add input:nth-child(8), .unit-infos .add-box .lower-side .keyword-add input:nth-child(8) {
-  width: 12%;
-}
-
-.unit-infos .add-box .lower-side .ability-add select {
-  width: 20%;
-}
-
-.unit-infos .add-box .lower-side .ability-add input:nth-child(2) {
-  width: 20%;
-}
-
-.unit-infos .add-box .lower-side .ability-add input:nth-child(3) {
-  width: 60%;
-}
-
-.unit-infos .btn-box {
-  margin-top: 20px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.btn {
-  color: #ffffff;
-  font-size: 18px;
   height: 50px;
-  border-radius: 3px;
-  border: none;
-  cursor: pointer;
+  background: #272b2a;
 }
 
-.right-tab {
-  width: 740px;
-  background: #fff;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.right-tab .pdf-view {
+.main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-view {
   padding: 10px;
   width: 100%;
   display: -webkit-box;
@@ -582,23 +561,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.right-tab .generate-box {
-  width: 100%;
-  height: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #ececec;
-  padding: 15px;
-  margin-top: 10px;
 }
 
 .warscroll {
@@ -881,10 +843,27 @@ body {
 }
 
 @media print {
-  .left-tab {
+  .control-panel {
     display: none;
   }
-  .pdf-view {
+  .main-view {
+    margin-left: 0;
+    padding: 0;
+  }
+  .main-view .main-view__heading {
+    display: none;
+  }
+  .main-view .main-view__content .main-view__text {
+    display: none;
+  }
+  .main-view .main-view__content .main-view__print {
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+  .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-top {
+    display: none;
+  }
+  .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-view {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -894,7 +873,12 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    padding: 15px;
+  }
+  .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-bottom {
+    display: none;
+  }
+  .adding-box {
+    display: none;
   }
 }
 /*# sourceMappingURL=style.css.map */

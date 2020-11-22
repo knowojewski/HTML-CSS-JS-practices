@@ -56,16 +56,89 @@
             </div>
             <div class="adding-box__main">
                 <div class="adding-box__content">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla in voluptatibus deserunt minus? Officiis quibusdam consequatur facere odio tempore doloremque cupiditate tenetur natus earum beatae eius, dignissimos aliquid veniam voluptates.
-                    Magnam voluptas asperiores nesciunt, et perferendis nobis repudiandae velit, corrupti, pariatur placeat eaque repellendus. Perferendis tempore, nostrum velit assumenda ad omnis quidem molestiae sed, incidunt numquam cum distinctio neque beatae?
-                    Sapiente accusamus rem debitis, facere vitae eos repellendus porro obcaecati numquam. Est voluptas id, quaerat iste, incidunt commodi rem et nam sequi eos ab ducimus dolore. Maiores numquam itaque minus?
-                    Voluptatem cumque aliquid atque architecto laudantium ea, repellendus facere ut labore nisi iste repudiandae aliquam ipsum! Ipsum nostrum dolorem cumque. Sequi nesciunt impedit molestias magnam! Vitae reprehenderit in cum? Sit?
-                    Quod non voluptates iusto inventore, minima eum repellendus ea. Libero quibusdam dolorum rerum nostrum, a accusantium facilis nemo veniam eaque voluptatibus consectetur, rem officiis, inventore temporibus vel autem sunt id.
-                    Maxime reiciendis odit recusandae a quos quibusdam, perferendis impedit animi sit accusamus, eligendi nostrum corporis, esse aliquam. Quo, nihil quam. Voluptatibus, ipsa. Libero numquam fugiat officiis. Accusamus recusandae repellendus porro.
-                    Modi unde distinctio porro repellendus dignissimos cum tenetur consequatur inventore possimus quibusdam! Laborum blanditiis cumque vero dolores. Ab ullam aliquid doloribus fuga? Voluptate molestias ratione exercitationem atque reprehenderit mollitia error.
-                    Quae non itaque ratione sapiente numquam ab alias ex aspernatur deleniti? Praesentium natus quasi illum excepturi, dicta nulla repellat beatae inventore fugit ut. Soluta illum pariatur cupiditate nemo, quibusdam incidunt!
-                    Debitis deserunt quibusdam temporibus dicta. Eum, velit aperiam praesentium dolores amet hic ipsa ipsum atque commodi culpa, quidem reiciendis. Accusamus ipsum at et odit mollitia obcaecati eligendi, rerum voluptatum eum.
-                    Architecto ipsam voluptatum praesentium illo cumque id quos sint fugit? Molestiae optio maiores nihil quae temporibus, fugiat ea pariatur illum corrupti deleniti ad esse eaque sit. Tempore veritatis consequatur veniam.
+                    <!-- <div class="unit-faction">
+                        <select id="alliance-selector">
+                            <option value="chaos">Chaos</option>
+                            <option value="order">Order</option>
+                            <option value="death">Death</option>
+                            <option value="destruction">Destruction</option>
+                        </select>
+                    </div> -->
+                    <form class="unit-infos">
+                        <div class="box text-box">
+                            <label for="unit-info-text">Unit Allegiance:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+        
+                        <div class="box text-box">
+                            <label for="unit-info-text">Unit Name:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+        
+                        <div class="box text-box">
+                            <label for="unit-info-text">Unit Mount:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+                        
+                        <div class="box number-box">
+                            <label for="unit-info-text">Unit Move:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+                        
+                        <div class="box number-box">
+                            <label for="unit-info-text">Unit Save:</label>
+                            <input type="text" id="unit-info-text">
+                            <p>+</p>
+                        </div>
+                        
+                        <div class="box number-box">
+                            <label for="unit-info-text">Unit Wounds:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+        
+                        <div class="box number-box">
+                            <label for="unit-info-text">Unit Bravery:</label>
+                            <input type="text" id="unit-info-text">
+                        </div>
+        
+                        <div class="box add-box">
+                            <div class="upper-side">
+                                <p>Add Unit Weapon</p>
+                                <button class="add-btn" id="addWeapon">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="lower-side"></div>
+                        </div>
+        
+                        <div class="box add-box">
+                            <div class="upper-side">
+                                <p>Add Unit Ability</p>
+                                <button class="add-btn" id="addAbility">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="lower-side"></div>
+                        </div>
+        
+                        <div class="box add-box">
+                            <div class="upper-side">
+                                <p>Add Unit Keyword</p>
+                                <button class="add-btn" id="addKeyword">
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                            <div class="lower-side"></div>
+                        </div>
+
+                    </form>
+                    <div class="btn-box">
+                        <button class="btn" id="clearFields">Clear</button>
+                        <button class="btn" id="addWarscroll">Add</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,10 +169,10 @@
 
                         </div>
                         <div class="main-view__print-view">
-
+            
                         </div>
                         <div class="main-view__print-bottom">
-
+                            <button class="btn generate-btn">Print Warscrolls</button>
                         </div>
                     </div>
                 </div>
@@ -112,104 +185,15 @@
 
 
 
-
-    <!-- <h1>Age of Sigmar Mini Warscrolls Generator</h1>
-
-    <div class="container">
-        <div class="left-tab">
-            <div class="unit-faction">
-                <select id="alliance-selector">
-                    <option value="chaos">Chaos</option>
-                    <option value="order">Order</option>
-                    <option value="death">Death</option>
-                    <option value="destruction">Destruction</option>
-                </select>
-            </div>
-            <form class="unit-infos">
-                <div class="box text-box">
-                    <label for="unit-info-text">Unit Allegianc:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-
-                <div class="box text-box">
-                    <label for="unit-info-text">Unit Name:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-
-                <div class="box text-box">
-                    <label for="unit-info-text">Unit Mount:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-                
-                <div class="box number-box">
-                    <label for="unit-info-text">Unit Move:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-                
-                <div class="box number-box">
-                    <label for="unit-info-text">Unit Save:</label>
-                    <input type="text" id="unit-info-text">
-                    <p>+</p>
-                </div>
-                
-                <div class="box number-box">
-                    <label for="unit-info-text">Unit Wounds:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-
-                <div class="box number-box">
-                    <label for="unit-info-text">Unit Bravery:</label>
-                    <input type="text" id="unit-info-text">
-                </div>
-
-                <div class="box add-box">
-                    <div class="upper-side">
-                        <p>Add Unit Weapon</p>
-                        <button class="add-btn" id="addWeapon">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                    <div class="lower-side"></div>
-                </div>
-
-                <div class="box add-box">
-                    <div class="upper-side">
-                        <p>Add Unit Ability</p>
-                        <button class="add-btn" id="addAbility">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                    <div class="lower-side"></div>
-                </div>
-
-                <div class="box add-box">
-                    <div class="upper-side">
-                        <p>Add Unit Keyword</p>
-                        <button class="add-btn" id="addKeyword">
-                            <span></span>
-                            <span></span>
-                        </button>
-                    </div>
-                    <div class="lower-side"></div>
-                </div>
-
-                <div class="btn-box">
-                    <button class="btn" id="clearFields">Clear</button>
-                    <button class="btn" id="addWarscroll">Add</button>
-                </div>
-            </form>
-        </div>
     
-        <div class="right-tab">
+        <!-- <div class="right-tab">
             <div class="pdf-view">
             </div>
             <div class="generate-box">
                 <button class="btn generate-btn">Print Warscrolls</button>
             </div>
         </div>
-    </div> -->
+    </div>  -->
 
     <script src="./html2canvas.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>

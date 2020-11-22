@@ -1,455 +1,455 @@
-// // ======================================
-// //               SELECTORS
-// // ======================================
+// ======================================
+//               SELECTORS
+// ======================================
 
 
-// const pdfFile = document.querySelector('.pdf-view');
-// const generateBtn = document.querySelector('.generate-btn');
-// const addWarscroll = document.querySelector('#addWarscroll');
-// const clearFields = document.querySelector('#clearFields');
+const pdfFile = document.querySelector('.main-view__print-view');
+const generateBtn = document.querySelector('.generate-btn');
+const addWarscroll = document.querySelector('#addWarscroll');
+const clearFields = document.querySelector('#clearFields');
 
-// const unitInfos = document.querySelectorAll('#unit-info-text');
-// const addWeapon = document.querySelector('#addWeapon');
-// const addAbility = document.querySelector('#addAbility');
-// const addKeyword = document.querySelector('#addKeyword');
-// const lowerSide = document.querySelectorAll('.lower-side');
-// let currentWarscroll = document.createElement('div');
-
-
-// // ======================================
-// //            EVENT LISTENERS
-// // ======================================
+const unitInfos = document.querySelectorAll('#unit-info-text');
+const addWeapon = document.querySelector('#addWeapon');
+const addAbility = document.querySelector('#addAbility');
+const addKeyword = document.querySelector('#addKeyword');
+const lowerSide = document.querySelectorAll('.lower-side');
+let currentWarscroll = document.createElement('div');
 
 
-// generateBtn.addEventListener('click', () => { window.print() });  
-// addWarscroll.addEventListener('click', addWarscrollToView);
-// clearFields.addEventListener('click', clearAllFields);
-// addWeapon.addEventListener('click', addUnitWeapon);
-// addAbility.addEventListener('click', addUnitAbility);
-// addKeyword.addEventListener('click', addUnitKeyword);
-// window.addEventListener('mouseup', e => {           // Closing warscroll panel when clicking on something else
-//     if(e.target === currentWarscroll) {
-//         console.log('It is');
-//     } else {
-//         console.log('It isnt');
-//         currentWarscroll.className = 'warscroll-panel';
-//     }
-// });
+// ======================================
+//            EVENT LISTENERS
+// ======================================
 
 
-// // ======================================
-// //               FUNCTIONS
-// // ======================================
+generateBtn.addEventListener('click', () => { window.print() });  
+addWarscroll.addEventListener('click', addWarscrollToView);
+clearFields.addEventListener('click', clearAllFields);
+addWeapon.addEventListener('click', addUnitWeapon);
+addAbility.addEventListener('click', addUnitAbility);
+addKeyword.addEventListener('click', addUnitKeyword);
+window.addEventListener('mouseup', e => {           // Closing warscroll panel when clicking on something else
+    if(e.target === currentWarscroll) {
+        console.log('It is');
+    } else {
+        console.log('It isnt');
+        currentWarscroll.className = 'warscroll-panel';
+    }
+});
 
-// // CREATING WARSCROLL CARD
 
-// function createWarscroll(mount) {
-//     const warscroll = new Warscroll();
-//     warscroll.allegiance = unitInfos[0].value;
-//     warscroll.name = unitInfos[1].value;
-//     warscroll.mount = unitInfos[2].value;
-//     warscroll.move = unitInfos[3].value;
-//     warscroll.save = unitInfos[4].value;
-//     warscroll.wounds = unitInfos[5].value;
-//     warscroll.bravery = unitInfos[6].value;
+// ======================================
+//               FUNCTIONS
+// ======================================
 
-//     createWeapons(warscroll);
-//     createAbilities(warscroll);
-//     createKeywords(warscroll);
+// CREATING WARSCROLL CARD
 
-//     let keywordsArray = [];
-//     warscroll.keywords.forEach(item =>  keywordsArray.push(item.name));
+function createWarscroll(mount) {
+    const warscroll = new Warscroll();
+    warscroll.allegiance = unitInfos[0].value;
+    warscroll.name = unitInfos[1].value;
+    warscroll.mount = unitInfos[2].value;
+    warscroll.move = unitInfos[3].value;
+    warscroll.save = unitInfos[4].value;
+    warscroll.wounds = unitInfos[5].value;
+    warscroll.bravery = unitInfos[6].value;
 
-//     let weaponsArray = [];
-//     warscroll.weapons.forEach(item => weaponsArray.push(item.name));
+    createWeapons(warscroll);
+    createAbilities(warscroll);
+    createKeywords(warscroll);
 
-//     let newWarscroll = document.createElement('div');
-//     let warscrollFront = document.createElement('div');
-//     let warscrollTop = document.createElement('div');
-//     let warscrollStats = document.createElement('div');
-//     let warscrollKeywords = document.createElement('div');
-//     let warscrollWeaponsAbilities = document.createElement('div');
-//     let warscrollWeapons = document.createElement('div');
-//     let warscrollWeaponsStats = document.createElement('div');
-//     let warscrollAbilities = document.createElement('div');
-//     let warscrollPanel = document.createElement('div');
-//     let warscrollPanelDelete = document.createElement('button');
+    let keywordsArray = [];
+    warscroll.keywords.forEach(item =>  keywordsArray.push(item.name));
 
-//     newWarscroll.className = 'warscroll';
-//     warscrollFront.className = 'warscroll-front';
-//     warscrollTop.className = 'warscroll-top';
-//     warscrollStats.className = 'warscroll-stats';
-//     warscrollKeywords.className = 'warscroll-keywords';
-//     warscrollWeaponsAbilities.className = 'warscroll-weapons-abilities';
-//     warscrollWeapons.className = 'warscroll-weapons';
-//     warscrollWeaponsStats.className = 'weapons-stats';
-//     warscrollAbilities.className = 'warscroll-abilities';
-//     warscrollPanel.className = 'warscroll-panel';
-//     warscrollPanelDelete.className = 'btn warscroll-delete';
+    let weaponsArray = [];
+    warscroll.weapons.forEach(item => weaponsArray.push(item.name));
 
-//     warscrollTop.innerHTML = `
-//         <div class="warscroll-top-name">
-//             <p>${warscroll.name}</p>
-//             <p>${mount}</p>
-//         </div>
-//         <div class="warscroll-top-weapons">
-//             <p>${weaponsArray.join(' / ')}</p>
-//         </div>
-//     `;
-//     warscrollStats.innerHTML = `
-//         <div class="stats-box">
-//             <i class="fas fa-external-link-alt"></i>
-//             <span>${warscroll.move}"</span>
-//         </div>
-//         <div class="stats-box">
-//             <i class="fas fa-shield-alt"></i>
-//             <span>${warscroll.save}+</span>
-//         </div>
-//         <div class="stats-box">
-//             <i class="fas fa-skull"></i>
-//             <span>${warscroll.wounds}</span>
-//         </div>
-//         <div class="stats-box">
-//             <i class="fas fa-star"></i>
-//             <span>${warscroll.bravery}</span>
-//         </div>
-//     `;
-//     warscrollKeywords.innerHTML = `<p>${keywordsArray.join(', ')}</p>`;
-//     warscrollWeaponsStats.innerHTML = `
-//         <p></p>
-//         <p>Range</p>
-//         <p>Attack</p>
-//         <p>To Hit</p>
-//         <p>To Wound</p>
-//         <p>Rend</p>
-//         <p>Dmg</p>
-//     `;
+    let newWarscroll = document.createElement('div');
+    let warscrollFront = document.createElement('div');
+    let warscrollTop = document.createElement('div');
+    let warscrollStats = document.createElement('div');
+    let warscrollKeywords = document.createElement('div');
+    let warscrollWeaponsAbilities = document.createElement('div');
+    let warscrollWeapons = document.createElement('div');
+    let warscrollWeaponsStats = document.createElement('div');
+    let warscrollAbilities = document.createElement('div');
+    let warscrollPanel = document.createElement('div');
+    let warscrollPanelDelete = document.createElement('button');
 
-//     warscrollWeapons.appendChild(warscrollWeaponsStats);
-//     warscroll.weapons.forEach(item => {
-//         let warscrollWeapon = document.createElement('div');
-//         warscrollWeapon.className = 'weapon';
-//         let icon;
-//         let str = item.name;
-//         let matches = str.match(/\b(\w)/g);
-//         let acronym = matches.join('');
+    newWarscroll.className = 'warscroll';
+    warscrollFront.className = 'warscroll-front';
+    warscrollTop.className = 'warscroll-top';
+    warscrollStats.className = 'warscroll-stats';
+    warscrollKeywords.className = 'warscroll-keywords';
+    warscrollWeaponsAbilities.className = 'warscroll-weapons-abilities';
+    warscrollWeapons.className = 'warscroll-weapons';
+    warscrollWeaponsStats.className = 'weapons-stats';
+    warscrollAbilities.className = 'warscroll-abilities';
+    warscrollPanel.className = 'warscroll-panel';
+    warscrollPanelDelete.className = 'btn warscroll-delete';
 
-//         if(item.type === 'Ranged') {
-//             icon = '<i class="fas fa-expand-arrows-alt"></i>';
-//         } else {
-//             icon = '<i class="fas fa-gavel"></i>';
-//         }
+    warscrollTop.innerHTML = `
+        <div class="warscroll-top-name">
+            <p>${warscroll.name}</p>
+            <p>${mount}</p>
+        </div>
+        <div class="warscroll-top-weapons">
+            <p>${weaponsArray.join(' / ')}</p>
+        </div>
+    `;
+    warscrollStats.innerHTML = `
+        <div class="stats-box">
+            <i class="fas fa-external-link-alt"></i>
+            <span>${warscroll.move}"</span>
+        </div>
+        <div class="stats-box">
+            <i class="fas fa-shield-alt"></i>
+            <span>${warscroll.save}+</span>
+        </div>
+        <div class="stats-box">
+            <i class="fas fa-skull"></i>
+            <span>${warscroll.wounds}</span>
+        </div>
+        <div class="stats-box">
+            <i class="fas fa-star"></i>
+            <span>${warscroll.bravery}</span>
+        </div>
+    `;
+    warscrollKeywords.innerHTML = `<p>${keywordsArray.join(', ')}</p>`;
+    warscrollWeaponsStats.innerHTML = `
+        <p></p>
+        <p>Range</p>
+        <p>Attack</p>
+        <p>To Hit</p>
+        <p>To Wound</p>
+        <p>Rend</p>
+        <p>Dmg</p>
+    `;
 
-//         warscrollWeapon.innerHTML = `
-//             <p>${acronym}</p>
-//             <p>${icon} ${item.range}"</p>
-//             <p>${item.attack}</p>
-//             <p>${item.hit}+</p>
-//             <p>${item.wound}+</p>
-//             <p>-${item.rend}</p>
-//             <p>${item.damage}</p>
-//         `;
+    warscrollWeapons.appendChild(warscrollWeaponsStats);
+    warscroll.weapons.forEach(item => {
+        let warscrollWeapon = document.createElement('div');
+        warscrollWeapon.className = 'weapon';
+        let icon;
+        let str = item.name;
+        let matches = str.match(/\b(\w)/g);
+        let acronym = matches.join('');
 
-//         warscrollWeapons.appendChild(warscrollWeapon);
-//     });
+        if(item.type === 'Ranged') {
+            icon = '<i class="fas fa-expand-arrows-alt"></i>';
+        } else {
+            icon = '<i class="fas fa-gavel"></i>';
+        }
 
-//     warscroll.abilities.forEach(item => {
-//         let warscrollAbility = document.createElement('div');
-//         warscrollAbility.className = 'ability';
+        warscrollWeapon.innerHTML = `
+            <p>${acronym}</p>
+            <p>${icon} ${item.range}"</p>
+            <p>${item.attack}</p>
+            <p>${item.hit}+</p>
+            <p>${item.wound}+</p>
+            <p>-${item.rend}</p>
+            <p>${item.damage}</p>
+        `;
 
-//         let str = item.type;
-//         let matches = str.match(/\b(\w)/g);
-//         let acronym = matches.join('');
+        warscrollWeapons.appendChild(warscrollWeapon);
+    });
 
-//         warscrollAbility.innerHTML = `
-//             <p class="ability-type">
-//                 ${acronym} 
-//             </p>
-//             <p class="ability-name">
-//                 ${item.name}: 
-//             </p>
-//             <p class="ability-desc">
-//                 ${item.description}
-//             </p>
-//         `;
+    warscroll.abilities.forEach(item => {
+        let warscrollAbility = document.createElement('div');
+        warscrollAbility.className = 'ability';
 
-//         warscrollAbilities.appendChild(warscrollAbility);
-//     });
-//     warscrollPanelDelete.innerHTML = '<i class="far fa-trash-alt"></i>';
+        let str = item.type;
+        let matches = str.match(/\b(\w)/g);
+        let acronym = matches.join('');
 
-//     warscrollPanelDelete.addEventListener('click', deleteWarscroll);
+        warscrollAbility.innerHTML = `
+            <p class="ability-type">
+                ${acronym} 
+            </p>
+            <p class="ability-name">
+                ${item.name}: 
+            </p>
+            <p class="ability-desc">
+                ${item.description}
+            </p>
+        `;
+
+        warscrollAbilities.appendChild(warscrollAbility);
+    });
+    warscrollPanelDelete.innerHTML = '<i class="far fa-trash-alt"></i>';
+
+    warscrollPanelDelete.addEventListener('click', deleteWarscroll);
     
-//     warscrollWeaponsAbilities.appendChild(warscrollWeapons);
-//     warscrollWeaponsAbilities.appendChild(warscrollAbilities);
+    warscrollWeaponsAbilities.appendChild(warscrollWeapons);
+    warscrollWeaponsAbilities.appendChild(warscrollAbilities);
     
-//     warscrollFront.appendChild(warscrollTop);
-//     warscrollFront.appendChild(warscrollStats);
-//     warscrollFront.appendChild(warscrollWeaponsAbilities);
-//     warscrollFront.appendChild(warscrollKeywords);
+    warscrollFront.appendChild(warscrollTop);
+    warscrollFront.appendChild(warscrollStats);
+    warscrollFront.appendChild(warscrollWeaponsAbilities);
+    warscrollFront.appendChild(warscrollKeywords);
 
-//     warscrollPanel.append(warscrollPanelDelete);
+    warscrollPanel.append(warscrollPanelDelete);
     
-//     newWarscroll.appendChild(warscrollFront);
-//     newWarscroll.appendChild(warscrollPanel);
-//     newWarscroll.addEventListener('click', pointWarscroll); 
+    newWarscroll.appendChild(warscrollFront);
+    newWarscroll.appendChild(warscrollPanel);
+    newWarscroll.addEventListener('click', pointWarscroll); 
 
-//     pdfFile.appendChild(newWarscroll);
+    pdfFile.appendChild(newWarscroll);
 
-//     splitWarscroll(newWarscroll);
-// }
+    splitWarscroll(newWarscroll);
+}
 
-// // CREATING WEAPON OBJECTS AND ADDING TO WARSCROLL CARD
+// CREATING WEAPON OBJECTS AND ADDING TO WARSCROLL CARD
 
-// function createWeapons(warscroll) {
-//     const allWeaponsInputs = document.querySelectorAll('.weapon-add');
+function createWeapons(warscroll) {
+    const allWeaponsInputs = document.querySelectorAll('.weapon-add');
 
-//     allWeaponsInputs.forEach(item => {
-//         let weaponName = item.children[0].value;
-//         let weaponType = item.children[1].value;
-//         let weaponRange = item.children[2].value;
-//         let weaponAttack = item.children[3].value;
-//         let weaponHit = item.children[4].value;
-//         let weaponWound = item.children[5].value;
-//         let weaponRend = item.children[6].value;
-//         let weaponDamage = item.children[7].value;
+    allWeaponsInputs.forEach(item => {
+        let weaponName = item.children[0].value;
+        let weaponType = item.children[1].value;
+        let weaponRange = item.children[2].value;
+        let weaponAttack = item.children[3].value;
+        let weaponHit = item.children[4].value;
+        let weaponWound = item.children[5].value;
+        let weaponRend = item.children[6].value;
+        let weaponDamage = item.children[7].value;
 
-//         const weapon = new Weapon();
-//         weapon.name = weaponName;
-//         weapon.type = weaponType;
-//         weapon.range = weaponRange;
-//         weapon.attack = weaponAttack;
-//         weapon.hit = weaponHit;
-//         weapon.wound = weaponWound;
-//         weapon.rend = weaponRend;
-//         weapon.damage = weaponDamage;
+        const weapon = new Weapon();
+        weapon.name = weaponName;
+        weapon.type = weaponType;
+        weapon.range = weaponRange;
+        weapon.attack = weaponAttack;
+        weapon.hit = weaponHit;
+        weapon.wound = weaponWound;
+        weapon.rend = weaponRend;
+        weapon.damage = weaponDamage;
 
-//         warscroll.weapons.push(weapon);
-//     });
-// }
+        warscroll.weapons.push(weapon);
+    });
+}
 
-// // CREATING ABILITY OBJECTS AND ADDING TO WARSCROLL CARD
+// CREATING ABILITY OBJECTS AND ADDING TO WARSCROLL CARD
 
-// function createAbilities(warscroll) {
-//     const allAbilityInputs = document.querySelectorAll('.ability-add');
+function createAbilities(warscroll) {
+    const allAbilityInputs = document.querySelectorAll('.ability-add');
 
-//     allAbilityInputs.forEach(item => {
-//         let abilityType = item.children[0].value;
-//         let abilityName = item.children[1].value;
-//         let abilityDesc = item.children[2].value;
+    allAbilityInputs.forEach(item => {
+        let abilityType = item.children[0].value;
+        let abilityName = item.children[1].value;
+        let abilityDesc = item.children[2].value;
 
-//         const newAbility = new Ability();
+        const newAbility = new Ability();
 
-//         newAbility.type = abilityType;
-//         newAbility.name = abilityName;
-//         newAbility.description = abilityDesc;
+        newAbility.type = abilityType;
+        newAbility.name = abilityName;
+        newAbility.description = abilityDesc;
 
-//         warscroll.abilities.push(newAbility);
-//     });
-// }
+        warscroll.abilities.push(newAbility);
+    });
+}
 
-// // CREATING KEYWORD OBJECTS AND ADDING TO WARSCROLL CARD
+// CREATING KEYWORD OBJECTS AND ADDING TO WARSCROLL CARD
 
-// function createKeywords(warscroll) {
-//     const allKeywordsInputs = document.querySelectorAll('.keyword-add');
+function createKeywords(warscroll) {
+    const allKeywordsInputs = document.querySelectorAll('.keyword-add');
 
-//     allKeywordsInputs.forEach(item => {
-//         let keywordName = item.children[0].value;
+    allKeywordsInputs.forEach(item => {
+        let keywordName = item.children[0].value;
 
-//         const newKeyword = new Keyword();
+        const newKeyword = new Keyword();
 
-//         newKeyword.name = keywordName;
+        newKeyword.name = keywordName;
 
-//         warscroll.keywords.push(newKeyword);
-//     });
-// }
+        warscroll.keywords.push(newKeyword);
+    });
+}
 
-// // CHECKING IF UNIT HAS A MOUNT
+// CHECKING IF UNIT HAS A MOUNT
 
-// function checkIfMount() {
-//     let mount = document.createElement('p');
+function checkIfMount() {
+    let mount = document.createElement('p');
 
-//     if(unitInfos[2].value === '') {
-//         mount = '';
-//     } else {
-//         mount= `ON ${unitInfos[2].value}`;
-//     }
+    if(unitInfos[2].value === '') {
+        mount = '';
+    } else {
+        mount= `ON ${unitInfos[2].value}`;
+    }
 
-//     return mount;
-// }
+    return mount;
+}
 
-// // ADDING WARSCROLL CARD TO PRINT VIEW, CLEARING FIELDS
+// ADDING WARSCROLL CARD TO PRINT VIEW, CLEARING FIELDS
 
-// function addWarscrollToView(e) {
-//     let mount = checkIfMount();
-//     createWarscroll(mount);
+function addWarscrollToView(e) {
+    let mount = checkIfMount();
+    createWarscroll(mount);
 
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
-// function clearAllFields(e) {
-//     lowerSide.forEach( item => { item.innerHTML = '' });
-//     unitInfos.forEach( item => { item.value = '' });
+function clearAllFields(e) {
+    lowerSide.forEach( item => { item.innerHTML = '' });
+    unitInfos.forEach( item => { item.value = '' });
     
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
-// // ADDING INPUTS TO CREATE WEAPON OBJECT
+// ADDING INPUTS TO CREATE WEAPON OBJECT
 
-// function addUnitWeapon(e) {
-//     let newWeapon = document.createElement('div');
-//     newWeapon.className = 'weapon-add attribute';
-//     newWeapon.innerHTML = `
-//         <input type="text" id="weaponName" placeholder="Name">
-//         <select id="abilityType">
-//             <option value="Melee">Melee</option>
-//             <option value="Ranged">Ranged</option>
-//         </select>
-//         <input type="text" id="weaponRange" placeholder="Range">
-//         <input type="text" id="weaponAttack" placeholder="Attack">
-//         <input type="text" id="weaponHit" placeholder="To Hit">
-//         <input type="text" id="weaponWound" placeholder="To Wound">
-//         <input type="text" id="weaponRend" placeholder="Rend">
-//         <input type="text" id="weaponDamage" placeholder="Damage">`;
+function addUnitWeapon(e) {
+    let newWeapon = document.createElement('div');
+    newWeapon.className = 'weapon-add attribute';
+    newWeapon.innerHTML = `
+        <input type="text" id="weaponName" placeholder="Name">
+        <select id="abilityType">
+            <option value="Melee">Melee</option>
+            <option value="Ranged">Ranged</option>
+        </select>
+        <input type="text" id="weaponRange" placeholder="Range">
+        <input type="text" id="weaponAttack" placeholder="Attack">
+        <input type="text" id="weaponHit" placeholder="To Hit">
+        <input type="text" id="weaponWound" placeholder="To Wound">
+        <input type="text" id="weaponRend" placeholder="Rend">
+        <input type="text" id="weaponDamage" placeholder="Damage">`;
 
-//     const addDeleteBtn = createDeleteBtn();
+    const addDeleteBtn = createDeleteBtn();
 
-//     newWeapon.append(addDeleteBtn);
-//     lowerSide[0].appendChild(newWeapon); 
+    newWeapon.append(addDeleteBtn);
+    lowerSide[0].appendChild(newWeapon); 
     
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
-// // ADDING INPUTS TO CREATE ABILITY OBJECT
+// ADDING INPUTS TO CREATE ABILITY OBJECT
 
-// function addUnitAbility(e) {
-//     let newAbility = document.createElement('div');
-//     newAbility.className = 'ability-add attribute';
-//     newAbility.innerHTML = `
-//         <select id="abilityType">
-//             <option value="Ability">Ability</option>
-//             <option value="Command Ability">Command Ability</option>
-//             <option value="Spell">Spell</option>
-//         </select>
-//         <input type="text" id="abilityName" placeholder="Name">
-//         <input type="text" id="abilityDesc" placeholder="Description">`;
+function addUnitAbility(e) {
+    let newAbility = document.createElement('div');
+    newAbility.className = 'ability-add attribute';
+    newAbility.innerHTML = `
+        <select id="abilityType">
+            <option value="Ability">Ability</option>
+            <option value="Command Ability">Command Ability</option>
+            <option value="Spell">Spell</option>
+        </select>
+        <input type="text" id="abilityName" placeholder="Name">
+        <input type="text" id="abilityDesc" placeholder="Description">`;
 
-//     const addDeleteBtn = createDeleteBtn();
+    const addDeleteBtn = createDeleteBtn();
 
-//     newAbility.append(addDeleteBtn);
-//     lowerSide[1].appendChild(newAbility);
+    newAbility.append(addDeleteBtn);
+    lowerSide[1].appendChild(newAbility);
 
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
-// // ADDING INPUTS TO CREATE KEYWORD OBJECT
+// ADDING INPUTS TO CREATE KEYWORD OBJECT
 
-// function addUnitKeyword(e) {
-//     let newKeyword = document.createElement('div');
-//     newKeyword.className = 'keyword-add attribute';
-//     newKeyword.innerHTML = `
-//         <input type="text" id="keywordName" placeholder="Name">`;
+function addUnitKeyword(e) {
+    let newKeyword = document.createElement('div');
+    newKeyword.className = 'keyword-add attribute';
+    newKeyword.innerHTML = `
+        <input type="text" id="keywordName" placeholder="Name">`;
 
-//     const addDeleteBtn = createDeleteBtn();
+    const addDeleteBtn = createDeleteBtn();
 
-//     newKeyword.append(addDeleteBtn);
-//     lowerSide[2].appendChild(newKeyword);
+    newKeyword.append(addDeleteBtn);
+    lowerSide[2].appendChild(newKeyword);
 
-//     e.preventDefault();
-// }
+    e.preventDefault();
+}
 
-// // CREATING DELETE BUTTON TO INPUTS
+// CREATING DELETE BUTTON TO INPUTS
 
-// function createDeleteBtn() {
-//     const addDeleteBtn = document.createElement('button');
-//     addDeleteBtn.className = 'attributes-btn';
-//     addDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
-//     addDeleteBtn.addEventListener('click', function(e){
-//         const attribute = e.target.closest('.attribute');
-//         attribute.remove();
-//         e.preventDefault();
+function createDeleteBtn() {
+    const addDeleteBtn = document.createElement('button');
+    addDeleteBtn.className = 'attributes-btn';
+    addDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
+    addDeleteBtn.addEventListener('click', function(e){
+        const attribute = e.target.closest('.attribute');
+        attribute.remove();
+        e.preventDefault();
+    });
+
+    return addDeleteBtn;
+}
+
+// function getPDF() {
+//     html2canvas(pdfFile).then(function(canvas) {
+//         var img = canvas.toDataURL('image/png');
+//         var doc = new jsPDF();
+//         doc.addImage(img, 'JPEG', 10, 10);
+//         doc.save('warscrolls.pdf');
 //     });
-
-//     return addDeleteBtn;
 // }
 
-// // function getPDF() {
-// //     html2canvas(pdfFile).then(function(canvas) {
-// //         var img = canvas.toDataURL('image/png');
-// //         var doc = new jsPDF();
-// //         doc.addImage(img, 'JPEG', 10, 10);
-// //         doc.save('warscrolls.pdf');
-// //     });
-// // }
+// CHECKING IF WARSCROLL IS HIGHER THAN DEFAULT
+// IF IS THEN CREATING WARSCROLL BACKSIDE AND ADDING ABILITIES TO IT
 
-// // CHECKING IF WARSCROLL IS HIGHER THAN DEFAULT
-// // IF IS THEN CREATING WARSCROLL BACKSIDE AND ADDING ABILITIES TO IT
+function splitWarscroll(warscroll) {
+    let front = warscroll.children[0];
+    let array = Array.from(front.children);
+    let result = 0;
 
-// function splitWarscroll(warscroll) {
-//     let front = warscroll.children[0];
-//     let array = Array.from(front.children);
-//     let result = 0;
+    array.forEach( item => {
+        result += item.offsetHeight;
+    });
 
-//     array.forEach( item => {
-//         result += item.offsetHeight;
-//     });
+    console.log(result)
 
-//     console.log(result)
+    if(result > 230) {
+        console.log('Is higher!');
+        const warscrollBack = document.createElement('div');
+        warscrollBack.className = 'warscroll-back';
+        const frontTop = warscroll.children[0].children[0];
+        const backTop = document.createElement('div');
+        backTop.className = 'warscroll-top';
+        const frontKeywords = warscroll.children[0].children[3];
+        const backKeywords = document.createElement('div');
+        backKeywords.className = 'warscroll-keywords';
+        const frontAbilities = warscroll.children[0].children[2].children[1];
+        const frontAbilitiesArray = Array.from(warscroll.children[0].children[2].children[1].children);
+        const backAbilities = document.createElement('div');
+        backAbilities.className = 'warscroll-abilities';
 
-//     if(result > 230) {
-//         console.log('Is higher!');
-//         const warscrollBack = document.createElement('div');
-//         warscrollBack.className = 'warscroll-back';
-//         const frontTop = warscroll.children[0].children[0];
-//         const backTop = document.createElement('div');
-//         backTop.className = 'warscroll-top';
-//         const frontKeywords = warscroll.children[0].children[3];
-//         const backKeywords = document.createElement('div');
-//         backKeywords.className = 'warscroll-keywords';
-//         const frontAbilities = warscroll.children[0].children[2].children[1];
-//         const frontAbilitiesArray = Array.from(warscroll.children[0].children[2].children[1].children);
-//         const backAbilities = document.createElement('div');
-//         backAbilities.className = 'warscroll-abilities';
-
-//         console.log(frontAbilitiesArray);
-//         let newResult = result;
+        console.log(frontAbilitiesArray);
+        let newResult = result;
         
-//         for(let i = frontAbilitiesArray.length-1; i >= 0; i--) {
-//             if(newResult>228) {
-//                 console.log('Is higher in a loop!');
-//                 console.log(frontAbilitiesArray[i]);
-//                 newResult -= frontAbilitiesArray[i].offsetHeight;
-//                 frontAbilities.removeChild(frontAbilities.lastChild);
+        for(let i = frontAbilitiesArray.length-1; i >= 0; i--) {
+            if(newResult>228) {
+                console.log('Is higher in a loop!');
+                console.log(frontAbilitiesArray[i]);
+                newResult -= frontAbilitiesArray[i].offsetHeight;
+                frontAbilities.removeChild(frontAbilities.lastChild);
 
-//                 backAbilities.prepend(frontAbilitiesArray[i]);
-//                 frontAbilitiesArray.splice(i, 1);
-//             } else {
-//                 break;
-//             }
-//         }
+                backAbilities.prepend(frontAbilitiesArray[i]);
+                frontAbilitiesArray.splice(i, 1);
+            } else {
+                break;
+            }
+        }
 
-//         console.log(frontAbilitiesArray);
+        console.log(frontAbilitiesArray);
 
-//         backTop.innerHTML = frontTop.innerHTML;
-//         backKeywords.innerHTML = frontKeywords.innerHTML;
-//         warscrollBack.appendChild(backTop);
-//         warscrollBack.appendChild(backAbilities);
-//         warscrollBack.appendChild(backKeywords);
-//         warscroll.appendChild(warscrollBack);
-//     } else {
-//         console.log('Is not higher!');
-//     }
-// }
+        backTop.innerHTML = frontTop.innerHTML;
+        backKeywords.innerHTML = frontKeywords.innerHTML;
+        warscrollBack.appendChild(backTop);
+        warscrollBack.appendChild(backAbilities);
+        warscrollBack.appendChild(backKeywords);
+        warscroll.appendChild(warscrollBack);
+    } else {
+        console.log('Is not higher!');
+    }
+}
 
-// function pointWarscroll(elem) {
-//     currentWarscroll = elem.target.closest('.warscroll').children[1];
-//     currentWarscroll.classList.add('turn-on');
-// }
+function pointWarscroll(elem) {
+    currentWarscroll = elem.target.closest('.warscroll').children[1];
+    currentWarscroll.classList.add('turn-on');
+}
 
-// function deleteWarscroll(e) {
-//     console.log(e.target.closest('.warscroll'));
-//     const warscrollToDelete = e.target.closest('.warscroll');
-//     warscrollToDelete.remove();
-// }
+function deleteWarscroll(e) {
+    console.log(e.target.closest('.warscroll'));
+    const warscrollToDelete = e.target.closest('.warscroll');
+    warscrollToDelete.remove();
+}
 
 
 
