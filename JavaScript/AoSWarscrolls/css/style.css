@@ -4,11 +4,11 @@ html, * {
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
   letter-spacing: -0.3px;
 }
 
 body {
+  font-family: 'Montserrat', sans-serif;
   background: #F3F3F3;
 }
 
@@ -26,6 +26,31 @@ body {
   border-radius: 3px;
   border: none;
   cursor: pointer;
+}
+
+.operation-btn {
+  background: #E7AC51;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}
+
+.operation-btn i {
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.operation-btn:hover {
+  background: #ffcf88;
 }
 
 .control-panel {
@@ -138,6 +163,9 @@ body {
 
 .control-panel .control-panel__bottom {
   position: relative;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
 }
 
 .control-panel .control-panel__bottom svg {
@@ -269,6 +297,13 @@ body {
 }
 
 .adding-box .adding-box__main .adding-box__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -278,6 +313,9 @@ body {
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -308,7 +346,12 @@ body {
   font-size: 15px;
   height: 30px;
   padding: 4px;
-  border-bottom: 1px solid #40AFFF;
+  border-bottom: 1px solid #272b2a;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .box input:focus {
+  border-bottom: 2px solid #E7AC51;
+  outline: none;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .text-box input {
@@ -346,7 +389,7 @@ body {
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn {
   width: 35px;
   height: 35px;
-  background: #40AFFF;
+  background: #E7AC51;
   border: none;
   border-radius: 3px;
   display: -webkit-box;
@@ -360,6 +403,8 @@ body {
           align-items: center;
   position: relative;
   cursor: pointer;
+  -webkit-transition: background .3s;
+  transition: background .3s;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn span {
@@ -373,6 +418,10 @@ body {
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn span:last-child {
   width: 2px;
   height: 25px;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .upper-side .add-btn:hover {
+  background: #ffcf88;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side {
@@ -422,7 +471,7 @@ body {
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(1), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(1), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(1) {
-  width: 30%;
+  width: 22%;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(2), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(2), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(2) {
@@ -430,11 +479,11 @@ body {
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(3), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(3), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(3) {
-  width: 9%;
+  width: 10%;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(4), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(4), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(4) {
-  width: 9%;
+  width: 10%;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(5), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(5), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(5) {
@@ -442,7 +491,11 @@ body {
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(6), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(6), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(6) {
-  width: 13%;
+  width: 14%;
+}
+
+.adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(7), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(7), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(7) {
+  width: 8%;
 }
 
 .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .weapon-add input:nth-child(8), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .ability-add input:nth-child(8), .adding-box .adding-box__main .adding-box__content .unit-infos .add-box .lower-side .keyword-add input:nth-child(8) {
@@ -461,7 +514,7 @@ body {
   width: 60%;
 }
 
-.adding-box .adding-box__main .adding-box__content .unit-infos .btn-box {
+.adding-box .adding-box__main .adding-box__content .btn-box {
   margin-top: 20px;
   width: 100%;
   display: -webkit-box;
@@ -469,6 +522,10 @@ body {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+}
+
+.adding-box .adding-box__main .adding-box__content .btn-box .operation-btn {
+  width: 45%;
 }
 
 .adding-box .adding-box__main .adding-box__content.opened {
@@ -547,7 +604,19 @@ body {
 .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-top {
   width: 100%;
   height: 50px;
+  padding: 0 15px;
   background: #272b2a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-top .main-view__print-top-paragraph {
+  color: #ffffff;
+  font-size: 18px;
 }
 
 .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-view {
@@ -563,7 +632,23 @@ body {
           justify-content: center;
 }
 
+.main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-bottom {
+  width: 100%;
+  height: 80px;
+  background: #272b2a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .warscroll {
+  font-family: sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -788,6 +873,7 @@ body {
 }
 
 .warscroll-panel .warscroll-delete {
+  width: 100px;
   background: #d64a4a;
 }
 
@@ -837,9 +923,9 @@ body {
 .warscroll:hover {
   -webkit-transform: translateY(-3px);
           transform: translateY(-3px);
-  border: 1px solid #40AFFF;
-  -webkit-box-shadow: 0 0 10px 1px #40AFFF;
-          box-shadow: 0 0 10px 1px #40AFFF;
+  border: 1px solid #E7AC51;
+  -webkit-box-shadow: 0 0 10px 1px #E7AC51;
+          box-shadow: 0 0 10px 1px #E7AC51;
 }
 
 @media print {

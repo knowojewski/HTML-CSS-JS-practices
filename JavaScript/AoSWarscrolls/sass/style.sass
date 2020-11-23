@@ -8,10 +8,10 @@ html, *
     margin: 0
     padding: 0
     box-sizing: border-box
-    font-family: 'Montserrat', sans-serif
     letter-spacing: -0.3px
 
 body 
+    font-family: 'Montserrat', sans-serif
     background: #F3F3F3
 
 .main 
@@ -25,6 +25,21 @@ body
     border-radius: 3px
     border: none
     cursor: pointer
+
+.operation-btn
+    background: $yellow-collor
+    width: 300px
+    display: flex 
+    align-items: center
+    justify-content: center
+    transition: background .3s
+
+    i 
+        font-size: 22px
+        margin-right: 10px
+
+.operation-btn:hover
+    background: $yellow-lighter
 
 
 //=================================
@@ -112,6 +127,9 @@ body
 
     .control-panel__bottom
         position: relative
+        width: 100%
+        padding: 20px 0
+        text-align: center
 
         svg
             position: absolute
@@ -212,6 +230,8 @@ body
         transition: height .8s
 
         .adding-box__content
+            display: flex
+            flex-direction: column
             width: 100%
             height: 100%
             opacity: 0
@@ -219,6 +239,7 @@ body
             transition: opacity .2s
 
             .unit-infos 
+                flex: 1
                 display: flex
                 flex-direction: column
                 width: 100%
@@ -237,7 +258,11 @@ body
                         font-size: 15px
                         height: 30px
                         padding: 4px
-                        border-bottom: 1px solid #40AFFF
+                        border-bottom: 1px solid $dark-grey
+
+                    input:focus
+                        border-bottom: 2px solid $yellow-collor
+                        outline: none
 
                 .text-box
                     input
@@ -262,7 +287,7 @@ body
                         .add-btn
                             width: 35px
                             height: 35px
-                            background: #40AFFF
+                            background: $yellow-collor
                             border: none
                             border-radius: 3px
                             display: flex
@@ -270,6 +295,7 @@ body
                             align-items: center
                             position: relative
                             cursor: pointer
+                            transition: background .3s
 
                             span 
                                 position: absolute
@@ -283,6 +309,9 @@ body
                             span:last-child
                                 width: 2px
                                 height: 25px
+
+                        .add-btn:hover
+                            background: $yellow-lighter
 
                     .lower-side
                         width: 100%
@@ -312,22 +341,25 @@ body
                                 font-style: italic
 
                             input:nth-child(1)
-                                width: 30%
+                                width: 22%
 
                             input:nth-child(2)
                                 width: 15%
 
                             input:nth-child(3)
-                                width: 9%
+                                width: 10%
 
                             input:nth-child(4)
-                                width: 9%
+                                width: 10%
 
                             input:nth-child(5)
                                 width: 9%
 
                             input:nth-child(6)
-                                width: 13%
+                                width: 14%
+
+                            input:nth-child(7)
+                                width: 8%
 
                             input:nth-child(8)
                                 width: 12%
@@ -342,11 +374,14 @@ body
                             input:nth-child(3)
                                 width: 60%
 
-                .btn-box
-                    margin-top: 20px
-                    width: 100%
-                    display: flex
-                    justify-content: space-around
+            .btn-box
+                margin-top: 20px
+                width: 100%
+                display: flex
+                justify-content: space-around
+
+                .operation-btn
+                    width: 45%
 
         .adding-box__content.opened
             opacity: 1
@@ -408,7 +443,14 @@ body
                 .main-view__print-top
                     width: 100%
                     height: 50px
+                    padding: 0 15px
                     background: $dark-grey
+                    display: flex
+                    align-items: center
+
+                    .main-view__print-top-paragraph
+                        color: #ffffff
+                        font-size: 18px
 
                 .main-view__print-view
                     padding: 10px
@@ -418,11 +460,18 @@ body
                     justify-content: center
 
                 .main-view__print-bottom
-        
+                    width: 100%
+                    height: 80px
+                    background: $dark-grey
+                    display: flex 
+                    justify-content: center
+                    align-items: center
+                   
 
 // ============ WARSCROLLS =================
 
 .warscroll
+    font-family: sans-serif
     display: flex
     background: #fff
     border: 1px solid #000000
@@ -564,6 +613,7 @@ body
     transition: transform .3s
 
     .warscroll-delete 
+        width: 100px
         background: #d64a4a
 
 .warscroll-panel.turn-on
@@ -603,8 +653,8 @@ body
 
 .warscroll:hover 
     transform: translateY(-3px)
-    border: 1px solid #40AFFF
-    box-shadow: 0 0 10px 1px #40AFFF
+    border: 1px solid $yellow-collor
+    box-shadow: 0 0 10px 1px $yellow-collor
 
 @media print 
     .control-panel
