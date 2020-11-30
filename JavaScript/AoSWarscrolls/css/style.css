@@ -28,7 +28,7 @@ body {
   cursor: pointer;
 }
 
-.operation-btn {
+.operation-box__btn {
   background: #E7AC51;
   width: 300px;
   display: -webkit-box;
@@ -44,13 +44,56 @@ body {
   transition: background .3s;
 }
 
-.operation-btn i {
+.operation-box__btn i {
   font-size: 22px;
   margin-right: 10px;
 }
 
-.operation-btn:hover {
+.operation-box__btn:hover {
   background: #ffcf88;
+}
+
+.message-box {
+  position: fixed;
+  width: 400px;
+  height: 80px;
+  background: #000;
+  top: 4%;
+  left: 50%;
+  border-radius: 3px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .3s, visibility .3s;
+  transition: opacity .3s, visibility .3s;
+}
+
+.message-box .message-box__message {
+  color: #ffffff;
+}
+
+.message-box.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.message-box.warning {
+  background: #d64a4a;
+}
+
+.message-box.success {
+  background: #62b35d;
 }
 
 .control-panel {
@@ -181,6 +224,149 @@ body {
   z-index: 4;
 }
 
+.operation-box {
+  position: fixed;
+  background: #fff;
+  left: 0;
+  z-index: 1;
+  -webkit-box-shadow: 2px 0 10px 1px #3333333f;
+          box-shadow: 2px 0 10px 1px #3333333f;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.operation-box .operation-box__top {
+  width: 100%;
+  height: 50px;
+  background: #272b2a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.operation-box .operation-box__top .operation-box__heading {
+  position: relative;
+  color: #F5F5F5;
+  font-weight: 400;
+}
+
+.operation-box .operation-box__top .operation-box__heading::before, .operation-box .operation-box__top .operation-box__heading::after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  background: #f5f5f5;
+  top: 50%;
+}
+
+.operation-box .operation-box__top .operation-box__top-btn {
+  position: absolute;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+  right: 15px;
+  border-radius: 50%;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}
+
+.operation-box .operation-box__top .operation-box__top-btn span {
+  position: absolute;
+  display: block;
+  background: #E7AC51;
+  width: 80%;
+  height: 3px;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+}
+
+.operation-box .operation-box__top .operation-box__top-btn .first {
+  -webkit-transform: rotateZ(45deg);
+          transform: rotateZ(45deg);
+}
+
+.operation-box .operation-box__top .operation-box__top-btn .second {
+  -webkit-transform: rotateZ(-45deg);
+          transform: rotateZ(-45deg);
+}
+
+.operation-box .operation-box__top .operation-box__top-btn:hover {
+  background: #f5f5f5;
+}
+
+.operation-box .operation-box__top .operation-box__top-btn:hover span {
+  background: #272b2a;
+}
+
+.operation-box .operation-box__main {
+  width: 100%;
+  height: 0;
+  background: #fff;
+  overflow-y: scroll;
+  -webkit-transition: height .8s;
+  transition: height .8s;
+}
+
+.operation-box .operation-box__main .operation-box__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  padding: 30px;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.operation-box .operation-box__main .operation-box__content .operation-box__form {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.operation-box .operation-box__main .operation-box__content .operation-box__btn-box {
+  margin-top: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .adding-box {
   position: fixed;
   width: 700px;
@@ -291,7 +477,7 @@ body {
   width: 100%;
   height: 0;
   background: #fff;
-  overflow: scroll;
+  overflow-y: scroll;
   -webkit-transition: height .8s;
   transition: height .8s;
 }
@@ -541,6 +727,156 @@ body {
           transform: translateX(300px);
 }
 
+.operation-box--save {
+  width: 500px;
+  top: 232px;
+  -webkit-transform: translateX(-500px);
+          transform: translateX(-500px);
+}
+
+.operation-box--save .operation-box__top--save .operation-box__heading--save::before, .operation-box--save .operation-box__top--save .operation-box__heading--save::after {
+  width: 90px;
+}
+
+.operation-box--save .operation-box__top--save .operation-box__heading--save::before {
+  left: -100px;
+}
+
+.operation-box--save .operation-box__top--save .operation-box__heading--save::after {
+  right: -100px;
+}
+
+.operation-box--save .operation-box__main--save {
+  overflow: visible;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save .operation-box__form--save .operation-box__text-box--save {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save .operation-box__form--save .operation-box__text-box--save .operation-box__input-label--save {
+  width: 48%;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save .operation-box__form--save .operation-box__text-box--save .operation-box__input--save {
+  border: none;
+  font-size: 15px;
+  height: 30px;
+  width: 48%;
+  padding: 4px;
+  border-bottom: 1px solid #272b2a;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save .operation-box__form--save .operation-box__text-box--save .operation-box__input--save:focus {
+  border-bottom: 2px solid #E7AC51;
+  outline: none;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save .operation-box__btn-box--save .operation-box__btn--save {
+  width: 48%;
+}
+
+.operation-box--save .operation-box__main--save .operation-box__content--save.opened {
+  opacity: 1;
+}
+
+.operation-box--save .operation-box__main--save.opened {
+  height: 200px;
+}
+
+.operation-box--save.opened {
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+}
+
+.operation-box--load {
+  width: 500px;
+  top: 297px;
+  -webkit-transform: translateX(-500px);
+          transform: translateX(-500px);
+}
+
+.operation-box--load .operation-box__top--load .operation-box__heading--load::before, .operation-box--load .operation-box__top--load .operation-box__heading--load::after {
+  width: 90px;
+}
+
+.operation-box--load .operation-box__top--load .operation-box__heading--load::before {
+  left: -100px;
+}
+
+.operation-box--load .operation-box__top--load .operation-box__heading--load::after {
+  right: -100px;
+}
+
+.operation-box--load .operation-box__main--load {
+  overflow: visible;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load {
+  border: 1px solid #c7c7c7;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load .load-item {
+  background: #fff;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load .load-item .load-item__name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding-left: 5px;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load .load-item .load-item__delete {
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: #d64a4a;
+  font-size: 20px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load .load-item:nth-child(even) {
+  background: #d8d8d8;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__btn-box--load .operation-box__btn--load {
+  width: 48%;
+}
+
+.operation-box--load .operation-box__main--load .operation-box__content--load.opened {
+  opacity: 1;
+}
+
+.operation-box--load .operation-box__main--load.opened {
+  height: 400px;
+}
+
+.operation-box--load.opened {
+  -webkit-transform: translateX(300px);
+          transform: translateX(300px);
+}
+
 .main-view {
   margin-left: 300px;
   padding: 30px;
@@ -666,6 +1002,10 @@ body {
 
 .warscroll-back {
   border-left: 1px solid #000000;
+}
+
+.warscroll-id {
+  display: none;
 }
 
 .warscroll-front, .warscroll-back {
@@ -963,7 +1303,7 @@ body {
   .main-view .main-view__content .main-view__print .main-view__print-box .main-view__print-bottom {
     display: none;
   }
-  .adding-box {
+  .operation-box--save, .adding-box, .operation-box--load, .warning-box {
     display: none;
   }
 }

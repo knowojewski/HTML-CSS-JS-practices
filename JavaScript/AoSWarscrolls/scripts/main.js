@@ -1,49 +1,57 @@
 // ======================================
-//               SELECTORS
+//               VARIABLES
 // ======================================
 
 
-const pdfFile = document.querySelector('.main-view__print-view');
-const generateBtn = document.querySelector('.generate-btn');
-const addWarscroll = document.querySelector('#addWarscroll');
-const clearFields = document.querySelector('#clearFields');
-
-const unitInfos = document.querySelectorAll('#unit-info-text');
-const addWeapon = document.querySelector('#addWeapon');
-const addAbility = document.querySelector('#addAbility');
-const addKeyword = document.querySelector('#addKeyword');
-const lowerSide = document.querySelectorAll('.lower-side');
 let currentWarscroll = document.createElement('div');
-
-
-// ======================================
-//            EVENT LISTENERS
-// ======================================
-
-
-generateBtn.addEventListener('click', () => { window.print() });  
-addWarscroll.addEventListener('click', addWarscrollToView);
-clearFields.addEventListener('click', clearAllFields);
-addWeapon.addEventListener('click', addUnitWeapon);
-addAbility.addEventListener('click', addUnitAbility);
-addKeyword.addEventListener('click', addUnitKeyword);
-window.addEventListener('mouseup', e => {           // Closing warscroll panel when clicking on something else
-    if(e.target === currentWarscroll) {
-        console.log('It is');
-    } else {
-        console.log('It isnt');
-        currentWarscroll.className = 'warscroll-panel';
-    }
-});
+let currentWarscrolls = [];
+console.log(currentWarscrolls);
 
 
 // ======================================
 //               FUNCTIONS
 // ======================================
 
+
+// LOAD PRINTSHEETS FROM LOCAL STORAGE
+
+
+function displayPrintSheets() {
+    const printSheets = storage.getPrintSheets();
+    printSheets.forEach(printSheet => {
+        const loadItem = document.createElement('div');
+        const loadItemName = document.createElement('p');
+        const loadItemBtn = document.createElement('button');
+        
+        loadItem.className = 'load-item';
+        loadItemName.className = 'load-item__name';
+        loadItemBtn.className = 'load-item__delete';
+
+        loadItemName.innerHTML = `${printSheet.name}`;
+        loadItemBtn.innerHTML = `<i class="far fa-trash-alt"></i>`;
+
+        loadItemBtn.addEventListener('click', deletePrintSheet);
+
+        loadItem.append(loadItemName);
+        loadItem.append(loadItemBtn);
+
+        loadBoxForm.append(loadItem);
+    });
+}
+
+// {/* <div class="load-item">
+//     <p class="load-item__name">Saved Print Sheet 1</p>
+//     <button class="load-item__delete"><i class="far fa-trash-alt"></i></button>
+// </div> */}
+
+
 // CREATING WARSCROLL CARD
 
+
 function createWarscroll(mount) {
+    let idDate = new Date();
+    let idNumber = idDate.valueOf();
+
     const warscroll = new Warscroll();
     warscroll.allegiance = unitInfos[0].value;
     warscroll.name = unitInfos[1].value;
@@ -52,10 +60,13 @@ function createWarscroll(mount) {
     warscroll.save = unitInfos[4].value;
     warscroll.wounds = unitInfos[5].value;
     warscroll.bravery = unitInfos[6].value;
+    warscroll.id = idNumber;
 
     createWeapons(warscroll);
     createAbilities(warscroll);
     createKeywords(warscroll);
+
+    currentWarscrolls.push(warscroll);
 
     let keywordsArray = [];
     warscroll.keywords.forEach(item =>  keywordsArray.push(item.name));
@@ -74,6 +85,7 @@ function createWarscroll(mount) {
     let warscrollAbilities = document.createElement('div');
     let warscrollPanel = document.createElement('div');
     let warscrollPanelDelete = document.createElement('button');
+    let warscrollID = document.createElement('p');
 
     newWarscroll.className = 'warscroll';
     warscrollFront.className = 'warscroll-front';
@@ -86,6 +98,7 @@ function createWarscroll(mount) {
     warscrollAbilities.className = 'warscroll-abilities';
     warscrollPanel.className = 'warscroll-panel';
     warscrollPanelDelete.className = 'btn warscroll-delete';
+    warscrollID.className = 'warscroll-id';
 
     warscrollTop.innerHTML = `
         <div class="warscroll-top-name">
@@ -175,6 +188,7 @@ function createWarscroll(mount) {
 
         warscrollAbilities.appendChild(warscrollAbility);
     });
+    warscrollID.innerHTML = `${warscroll.id}`;
     warscrollPanelDelete.innerHTML = '<i class="far fa-trash-alt"></i>';
 
     warscrollPanelDelete.addEventListener('click', deleteWarscroll);
@@ -186,6 +200,7 @@ function createWarscroll(mount) {
     warscrollFront.appendChild(warscrollStats);
     warscrollFront.appendChild(warscrollWeaponsAbilities);
     warscrollFront.appendChild(warscrollKeywords);
+    warscrollFront.appendChild(warscrollID);
 
     warscrollPanel.append(warscrollPanelDelete);
     
@@ -196,6 +211,7 @@ function createWarscroll(mount) {
     pdfFile.appendChild(newWarscroll);
 
     splitWarscroll(newWarscroll);
+    console.log(currentWarscrolls);
 }
 
 // CREATING WEAPON OBJECTS AND ADDING TO WARSCROLL CARD
@@ -277,112 +293,7 @@ function checkIfMount() {
     return mount;
 }
 
-// ADDING WARSCROLL CARD TO PRINT VIEW, CLEARING FIELDS
-
-function addWarscrollToView(e) {
-    let mount = checkIfMount();
-    createWarscroll(mount);
-
-    e.preventDefault();
-}
-
-function clearAllFields(e) {
-    lowerSide.forEach( item => { item.innerHTML = '' });
-    unitInfos.forEach( item => { item.value = '' });
-    
-    e.preventDefault();
-}
-
-// ADDING INPUTS TO CREATE WEAPON OBJECT
-
-function addUnitWeapon(e) {
-    let newWeapon = document.createElement('div');
-    newWeapon.className = 'weapon-add attribute';
-    newWeapon.innerHTML = `
-        <input type="text" id="weaponName" placeholder="Name">
-        <select id="abilityType">
-            <option value="Melee">Melee</option>
-            <option value="Ranged">Ranged</option>
-        </select>
-        <input type="text" id="weaponRange" placeholder="Range">
-        <input type="text" id="weaponAttack" placeholder="Attack">
-        <input type="text" id="weaponHit" placeholder="To Hit">
-        <input type="text" id="weaponWound" placeholder="To Wound">
-        <input type="text" id="weaponRend" placeholder="Rend">
-        <input type="text" id="weaponDamage" placeholder="Damage">`;
-
-    const addDeleteBtn = createDeleteBtn();
-
-    newWeapon.append(addDeleteBtn);
-    lowerSide[0].appendChild(newWeapon); 
-    
-    e.preventDefault();
-}
-
-// ADDING INPUTS TO CREATE ABILITY OBJECT
-
-function addUnitAbility(e) {
-    let newAbility = document.createElement('div');
-    newAbility.className = 'ability-add attribute';
-    newAbility.innerHTML = `
-        <select id="abilityType">
-            <option value="Ability">Ability</option>
-            <option value="Command Ability">Command Ability</option>
-            <option value="Spell">Spell</option>
-        </select>
-        <input type="text" id="abilityName" placeholder="Name">
-        <input type="text" id="abilityDesc" placeholder="Description">`;
-
-    const addDeleteBtn = createDeleteBtn();
-
-    newAbility.append(addDeleteBtn);
-    lowerSide[1].appendChild(newAbility);
-
-    e.preventDefault();
-}
-
-// ADDING INPUTS TO CREATE KEYWORD OBJECT
-
-function addUnitKeyword(e) {
-    let newKeyword = document.createElement('div');
-    newKeyword.className = 'keyword-add attribute';
-    newKeyword.innerHTML = `
-        <input type="text" id="keywordName" placeholder="Name">`;
-
-    const addDeleteBtn = createDeleteBtn();
-
-    newKeyword.append(addDeleteBtn);
-    lowerSide[2].appendChild(newKeyword);
-
-    e.preventDefault();
-}
-
-// CREATING DELETE BUTTON TO INPUTS
-
-function createDeleteBtn() {
-    const addDeleteBtn = document.createElement('button');
-    addDeleteBtn.className = 'attributes-btn';
-    addDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
-    addDeleteBtn.addEventListener('click', function(e){
-        const attribute = e.target.closest('.attribute');
-        attribute.remove();
-        e.preventDefault();
-    });
-
-    return addDeleteBtn;
-}
-
-// function getPDF() {
-//     html2canvas(pdfFile).then(function(canvas) {
-//         var img = canvas.toDataURL('image/png');
-//         var doc = new jsPDF();
-//         doc.addImage(img, 'JPEG', 10, 10);
-//         doc.save('warscrolls.pdf');
-//     });
-// }
-
-// CHECKING IF WARSCROLL IS HIGHER THAN DEFAULT
-// IF IS THEN CREATING WARSCROLL BACKSIDE AND ADDING ABILITIES TO IT
+// CHECK IF WARSCROLL INFOS OVERFLOWS CARD, IF THEY DO, CREATING ANOTHER CARD (BACKSIDE) 
 
 function splitWarscroll(warscroll) {
     let front = warscroll.children[0];
@@ -392,8 +303,6 @@ function splitWarscroll(warscroll) {
     array.forEach( item => {
         result += item.offsetHeight;
     });
-
-    console.log(result)
 
     if(result > 230) {
         console.log('Is higher!');
@@ -410,7 +319,6 @@ function splitWarscroll(warscroll) {
         const backAbilities = document.createElement('div');
         backAbilities.className = 'warscroll-abilities';
 
-        console.log(frontAbilitiesArray);
         let newResult = result;
         
         for(let i = frontAbilitiesArray.length-1; i >= 0; i--) {
@@ -435,21 +343,22 @@ function splitWarscroll(warscroll) {
         warscrollBack.appendChild(backAbilities);
         warscrollBack.appendChild(backKeywords);
         warscroll.appendChild(warscrollBack);
-    } else {
-        console.log('Is not higher!');
     }
 }
 
-function pointWarscroll(elem) {
-    currentWarscroll = elem.target.closest('.warscroll').children[1];
-    currentWarscroll.classList.add('turn-on');
+
+// DELETE OBJECT FROM CURRENTWARSCROLLS ARRAY
+
+
+function deleteFromCurrentWarscrolls(id) {
+    currentWarscrolls.forEach( (warscroll, index) => {
+        if(warscroll.id === parseInt(id)) {
+            currentWarscrolls.splice(index, 1);
+        }
+    });
 }
 
-function deleteWarscroll(e) {
-    console.log(e.target.closest('.warscroll'));
-    const warscrollToDelete = e.target.closest('.warscroll');
-    warscrollToDelete.remove();
-}
+
 
 
 

@@ -3,6 +3,8 @@ $yellow-collor: #E7AC51
 $yellow-lighter: #ffcf88
 $grey: #665F55
 $dark-grey: #272b2a
+$warning-red: #d64a4a
+$success-green: #62b35d
     
 html, *
     margin: 0
@@ -26,7 +28,7 @@ body
     border: none
     cursor: pointer
 
-.operation-btn
+.operation-box__btn
     background: $yellow-collor
     width: 300px
     display: flex 
@@ -38,8 +40,38 @@ body
         font-size: 22px
         margin-right: 10px
 
-.operation-btn:hover
+.operation-box__btn:hover
     background: $yellow-lighter
+
+.message-box
+    position: fixed 
+    width: 400px
+    height: 80px
+    background: #000
+    top: 4%
+    left: 50%
+    border-radius: 3px
+    transform: translateX(-50%)
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 10
+    opacity: 0
+    visibility: hidden
+    transition: opacity .3s, visibility .3s
+
+    .message-box__message
+        color: #ffffff
+
+.message-box.active
+    visibility: visible
+    opacity: 1
+
+.message-box.warning
+    background: $warning-red
+
+.message-box.success
+    background: $success-green
 
 
 //=================================
@@ -144,6 +176,103 @@ body
 
 
 //=================================
+//          OPERATION BOX
+//=================================
+
+
+.operation-box
+    position: fixed
+    background: #fff
+    left: 0
+    z-index: 1
+    box-shadow: 2px 0 10px 1px #3333333f
+    transition: transform .5s
+
+    .operation-box__top
+        width: 100%
+        height: 50px
+        background: $dark-grey
+        display: flex
+        justify-content: center
+        align-items: center
+        position: relative
+
+        .operation-box__heading
+            position: relative
+            color: #F5F5F5
+            font-weight: 400
+
+        .operation-box__heading::before, .operation-box__heading::after
+            position: absolute
+            content: ''
+            height: 2px
+            background: #f5f5f5
+            top: 50%
+
+        .operation-box__top-btn
+            position: absolute
+            background: transparent
+            width: 28px
+            height: 28px
+            right: 15px
+            border-radius: 50%
+            border: none
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            transition: background .3s
+            
+            span
+                position: absolute
+                display: block
+                background: $yellow-collor
+                width: 80%
+                height: 3px
+                transition: background .3s
+
+            .first
+                transform: rotateZ(45deg)
+
+            .second
+                transform: rotateZ(- 45deg)
+
+        .operation-box__top-btn:hover
+            background: #f5f5f5
+
+            span
+                background: $dark-grey
+
+    .operation-box__main
+        width: 100%
+        height: 0
+        background: #fff
+        overflow-y: scroll
+        transition: height .8s
+
+        .operation-box__content
+            display: flex
+            flex-direction: column
+            width: 100%
+            height: 100%
+            opacity: 0
+            padding: 30px
+            transition: opacity .2s
+
+            .operation-box__form
+                flex: 1
+                display: flex
+                flex-direction: column
+                width: 100%
+
+            .operation-box__btn-box
+                margin-top: 20px
+                width: 100%
+                display: flex
+                justify-content: space-between
+
+
+//=================================
 //           ADDING BOX
 //=================================
 
@@ -226,7 +355,7 @@ body
         width: 100%
         height: 0
         background: #fff
-        overflow: scroll
+        overflow-y: scroll
         transition: height .8s
 
         .adding-box__content
@@ -326,7 +455,7 @@ body
                                 border: none
                                 width: 30px
                                 height: 30px
-                                background: #d64a4a
+                                background: $warning-red
                                 font-size: 20px
                                 color: #ffffff
                                 cursor: pointer
@@ -391,6 +520,138 @@ body
     
 .adding-box.opened
     transform: translateX(300px)
+
+
+//=================================
+//           SAVE BOX
+//=================================
+
+
+.operation-box--save
+    width: 500px
+    top: 232px
+    // transform: translateX(300px)
+    transform: translateX(-500px)
+
+    .operation-box__top--save
+        .operation-box__heading--save::before, .operation-box__heading--save::after
+            width: 90px
+
+        .operation-box__heading--save::before
+            left: -100px
+
+        .operation-box__heading--save::after
+            right: -100px   
+
+    .operation-box__main--save     
+        overflow: visible
+
+        .operation-box__content--save
+            .operation-box__form--save
+                .operation-box__text-box--save
+                    display: flex
+                    align-items: center
+                    justify-content: space-between
+                    margin: 8px 0
+                    width: 100%
+
+                    .operation-box__input-label--save
+                        width: 48%
+
+                    .operation-box__input--save
+                        border: none
+                        font-size: 15px
+                        height: 30px
+                        width: 48%
+                        padding: 4px
+                        border-bottom: 1px solid $dark-grey
+
+                    .operation-box__input--save:focus
+                        border-bottom: 2px solid $yellow-collor
+                        outline: none
+
+            .operation-box__btn-box--save
+                .operation-box__btn--save
+                    width: 48%
+
+        .operation-box__content--save.opened
+            opacity: 1
+
+    .operation-box__main--save.opened
+        height: 200px
+    
+.operation-box--save.opened
+    transform: translateX(300px)
+
+
+//=================================
+//           LOAD BOX
+//=================================
+
+
+.operation-box--load
+    width: 500px
+    top: 297px
+    // transform: translateX(300px)
+    transform: translateX(-500px)
+
+    .operation-box__top--load
+        .operation-box__heading--load::before, .operation-box__heading--load::after
+            width: 90px
+
+        .operation-box__heading--load::before
+            left: -100px
+
+        .operation-box__heading--load::after
+            right: -100px   
+
+    .operation-box__main--load     
+        overflow: visible
+
+        .operation-box__content--load
+            .operation-box__form--load
+                border: 1px solid #c7c7c7
+                
+                .load-item
+                    background: #fff
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    cursor: pointer
+                    margin-bottom: 2px
+                
+                    .load-item__name
+                        flex: 1
+                        padding-left: 5px
+
+                    .load-item__delete
+                        border: none
+                        width: 30px
+                        height: 30px
+                        background: $warning-red
+                        font-size: 20px
+                        color: #ffffff
+                        cursor: pointer
+
+                    .load-item__delete:hover
+
+
+                .load-item:nth-child(even)
+                    background: #d8d8d8
+
+            .operation-box__btn-box--load
+                .operation-box__btn--load
+                    width: 48%
+
+        .operation-box__content--load.opened
+            opacity: 1
+
+    .operation-box__main--load.opened
+        height: 400px
+    
+.operation-box--load.opened
+    transform: translateX(300px)
+
 
 //=================================
 //           MAIN VIEW
@@ -482,6 +743,9 @@ body
 
 .warscroll-back
     border-left: 1px solid #000000
+
+.warscroll-id
+    display: none
 
 .warscroll-front, .warscroll-back
     height: 240px
@@ -614,7 +878,7 @@ body
 
     .warscroll-delete 
         width: 100px
-        background: #d64a4a
+        background: $warning-red
 
 .warscroll-panel.turn-on
     transform: translateX(0)
@@ -695,7 +959,7 @@ body
                     .main-view__print-bottom
                         display: none
 
-    .adding-box 
+    .operation-box--save, .adding-box, .operation-box--load, .warning-box
         display: none
 
 

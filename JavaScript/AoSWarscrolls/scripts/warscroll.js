@@ -1,5 +1,5 @@
 class Warscroll {
-    constructor(allegiance, name, mount, move, save, wounds, bravery) {
+    constructor(allegiance, name, mount, move, save, wounds, bravery, id) {
         this.allegiance = allegiance;
         this.name = name;
         this.mount = mount;
@@ -10,6 +10,7 @@ class Warscroll {
         this.weapons = [];
         this.abilities = [];
         this.keywords = [];
+        this.id = id;
     }
 
     addWeapon(weapon) {
