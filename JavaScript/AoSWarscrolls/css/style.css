@@ -839,6 +839,8 @@ body {
 }
 
 .operation-box--load .operation-box__main--load .operation-box__content--load .operation-box__form--load .load-item .load-item__name {
+  color: #272b2a;
+  text-decoration: none;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;

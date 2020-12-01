@@ -27,12 +27,12 @@ function displayPrintSheets() {
 
 
 function createPrintSheetLoad(name) {
-    const loadItem = document.createElement('a');
-    const loadItemName = document.createElement('p');
+    const loadItem = document.createElement('div');
+    const loadItemName = document.createElement('a');
     const loadItemBtn = document.createElement('button');
     
-    loadItem.setAttribute('href', '#');
     loadItem.className = 'load-item';
+    loadItemName.setAttribute('href', '#');
     loadItemName.className = 'load-item__name';
     loadItemBtn.className = 'load-item__delete';
 
