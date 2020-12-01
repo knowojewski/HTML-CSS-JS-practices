@@ -15,8 +15,6 @@ class Storage {
         const printSheets = this.getPrintSheets();
         
         printSheets.push(printSheet);
-
-        console.log(printSheets);
         
         localStorage.setItem('printSheets', JSON.stringify(printSheets));
     }

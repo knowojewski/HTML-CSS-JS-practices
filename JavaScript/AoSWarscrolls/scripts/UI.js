@@ -341,9 +341,9 @@ function savePrinSheet() {
         const printSheet = new PrintSheet(sheetName);
         
         printSheet.warscrolls = [...currentWarscrolls];
-        // console.log(printSheet);
 
         storage.savePrintSheet(printSheet);
+        createPrintSheetLoad(printSheet.name);
         displayMessageBox(message, color);
     }
 }

@@ -5,7 +5,6 @@
 
 let currentWarscroll = document.createElement('div');
 let currentWarscrolls = [];
-console.log(currentWarscrolls);
 
 
 // ======================================
@@ -19,30 +18,34 @@ console.log(currentWarscrolls);
 function displayPrintSheets() {
     const printSheets = storage.getPrintSheets();
     printSheets.forEach(printSheet => {
-        const loadItem = document.createElement('div');
-        const loadItemName = document.createElement('p');
-        const loadItemBtn = document.createElement('button');
-        
-        loadItem.className = 'load-item';
-        loadItemName.className = 'load-item__name';
-        loadItemBtn.className = 'load-item__delete';
-
-        loadItemName.innerHTML = `${printSheet.name}`;
-        loadItemBtn.innerHTML = `<i class="far fa-trash-alt"></i>`;
-
-        loadItemBtn.addEventListener('click', deletePrintSheet);
-
-        loadItem.append(loadItemName);
-        loadItem.append(loadItemBtn);
-
-        loadBoxForm.append(loadItem);
+        createPrintSheetLoad(printSheet.name);
     });
 }
 
-// {/* <div class="load-item">
-//     <p class="load-item__name">Saved Print Sheet 1</p>
-//     <button class="load-item__delete"><i class="far fa-trash-alt"></i></button>
-// </div> */}
+
+// CREATE PRINT SHEET AND ADD TO LOAD VIEW
+
+
+function createPrintSheetLoad(name) {
+    const loadItem = document.createElement('a');
+    const loadItemName = document.createElement('p');
+    const loadItemBtn = document.createElement('button');
+    
+    loadItem.setAttribute('href', '#');
+    loadItem.className = 'load-item';
+    loadItemName.className = 'load-item__name';
+    loadItemBtn.className = 'load-item__delete';
+
+    loadItemName.innerHTML = `${name}`;
+    loadItemBtn.innerHTML = `<i class="far fa-trash-alt"></i>`;
+
+    loadItemBtn.addEventListener('click', deletePrintSheet);
+
+    loadItem.append(loadItemName);
+    loadItem.append(loadItemBtn);
+
+    loadBoxForm.append(loadItem);
+}
 
 
 // CREATING WARSCROLL CARD
