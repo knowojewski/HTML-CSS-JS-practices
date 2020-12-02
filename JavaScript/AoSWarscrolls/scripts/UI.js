@@ -325,6 +325,14 @@ function deleteWarscroll(e) {
 
 function savePrinSheet() {
     const sheetName = saveBoxInput.value;
+    const printSheets = storage.getPrintSheets();
+    printSheets.forEach(sheet => {
+        if(sheet.name === sheetName) {
+            console.log('There is Sheet with that name');
+        } else {
+            console.log('There are no sheets with that name');
+        }
+    });
 
     if(sheetName === '') {
         const message = 'You must name your Print Sheet!';
