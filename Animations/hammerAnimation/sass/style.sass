@@ -1,0 +1,196 @@
+*, html 
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+
+body 
+    background: #333333
+    display: flex 
+    justify-content: center 
+    align-items: center
+    height: 100vh
+
+.animation
+    overflow: visible
+
+    .hammer 
+        transform: rotateZ(0deg)
+        transform-origin: 0 50%
+        animation: hammer-anim 2s ease-in forwards
+
+    .warscroll 
+        transform-origin: center center
+        transform: none
+
+    .warscroll-top
+        transform: rotateX(80deg) translate(-80px, 180px)
+        animation: warscroll-top-anim 1s linear forwards .6s
+
+    .warscroll-middle
+        transform: rotateX(80deg) translate(-80px, 175px)
+        animation: warscroll-mid-anim 1s linear forwards 1s
+
+    .warscroll-bottom
+        transform: rotateX(80deg) translate(-50px, 145px)
+        animation: warscroll-bottom-anim 1s linear forwards 1.1s
+
+    .sparcle 
+        transform: none
+        transform-origin: center center
+        
+    .sparcle-left-top, .sparcle-left-top-2
+        transform: rotateZ(0deg) translate(10px, 15px)
+        opacity: 0
+
+    .sparcle-left-top
+        animation: sparcle-left-anim .5s linear forwards .6s
+
+    .sparcle-left-top-2
+        animation: sparcle-left-anim .5s linear forwards 1s
+
+    .sparcle-left-mid, .sparcle-left-mid-2
+        transform: rotateZ(0deg) translate(20px, 13px)
+        opacity: 0
+
+    .sparcle-left-mid
+        animation: sparcle-left-anim .5s linear forwards .7s
+
+    .sparcle-left-mid-2
+        animation: sparcle-left-anim .5s linear forwards 1.1s
+
+    .sparcle-left-bottom, .sparcle-left-bottom-2
+        transform: rotateZ(0deg) translate(12px, 5px)
+        opacity: 0
+
+    .sparcle-left-bottom
+        animation: sparcle-left-anim .5s linear forwards .65s
+
+    .sparcle-left-bottom-2
+        animation: sparcle-left-anim .5s linear forwards 1.05s
+
+    .sparcle-right-top, .sparcle-right-top-2
+        transform: rotateZ(0deg) translate(-5px, 10px)
+        opacity: 0
+
+    .sparcle-right-top
+        animation: sparcle-right-anim .5s linear forwards .6s
+
+    .sparcle-right-top-2
+        animation: sparcle-right-anim .5s linear forwards 1s
+
+    .sparcle-right-mid, .sparcle-right-mid-2
+        transform: rotateZ(0deg) translate(-13px, 12px)
+        opacity: 0
+
+    .sparcle-right-mid
+        animation: sparcle-right-anim .5s linear forwards .7s
+
+    .sparcle-right-mid-2
+        animation: sparcle-right-anim .5s linear forwards 1.1s
+
+    .sparcle-right-bottom, .sparcle-right-bottom-2
+        transform: rotateZ(0deg) translate(-13px, 3px)
+        opacity: 0
+
+    .sparcle-right-bottom
+        animation: sparcle-right-anim .5s linear forwards .65s
+
+    .sparcle-right-bottom-2
+        animation: sparcle-right-anim .5s linear forwards 1.05s
+
+@keyframes hammer-anim
+    0%
+        transform: rotateZ(0deg)
+
+    20%
+        transform: rotateZ(-70deg)
+
+    30%     
+        transform: rotateZ(0deg)
+
+    40%     
+        transform: rotateZ(-70deg)
+
+    50%     
+        transform: rotateZ(0deg)
+
+    60%     
+        transform: rotateZ(-10deg)
+
+    70%     
+        transform: rotateZ(0deg)
+
+    80%     
+        transform: rotateZ(-5deg)
+
+    85%     
+        transform: rotateZ(0deg)
+
+    90%     
+        transform: rotateZ(-3deg)
+        
+    100%
+        transform: rotateZ(0deg)
+
+@keyframes warscroll-mid-anim
+    0%
+        transform: rotateX(80deg) translate(-80px, 175px)
+
+    20%
+        transform: rotateX(80deg) translate(-40px, 145px)
+        
+    100%
+        transform: rotateX(180deg) translate(55px, -85px) rotateZ(80deg)
+        
+
+@keyframes warscroll-top-anim
+    0%
+        transform: rotateX(80deg) translate(-80px, 180px)
+
+    20%
+        transform: rotateX(80deg) translate(-40px, 145px)
+        
+    100%
+        transform: rotateX(180deg) translate(0px, -42px) rotateZ(30deg)
+
+
+@keyframes warscroll-bottom-anim 
+    0%
+        transform: rotateX(80deg) translate(-50px, 145px)
+    
+    20%
+        transform: rotateX(80deg) translate(-30px, 115px) 
+        
+    100%
+        transform: rotateX(180deg) translate(50px, -50px) rotateZ(60deg)
+        
+
+@keyframes sparcle-left-anim
+    0%
+        opacity: 1
+        transform: rotateZ(0deg) translate(10px, 15px)
+        
+    50%
+        opacity: 1
+        transform: rotateZ(-45deg) translate(-30px, -50px)
+
+    100% 
+        opacity: 0
+        transform: rotateZ(-90deg) translate(-50px, -125px)
+
+
+@keyframes sparcle-right-anim
+    0%
+        opacity: 1
+        transform: rotateZ(0deg) translate(-5px, 10px)
+        
+    50%
+        opacity: 1
+        transform: rotateZ(45deg) translate(30px, -100px)
+
+    100% 
+        opacity: 0
+        transform: rotateZ(90deg) translate(50px, -155px)
+
+        
+        
